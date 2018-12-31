@@ -1,0 +1,21 @@
+{
+    "workbench.activityBar.visible": false,
+    "editor.fontFamily": "Consolas, 'Courier New', monospace",
+    "editor.fontSize": 19.5,
+    "window.zoomLevel": 0,
+    "python.jediEnabled": false,
+    "python.linting.pylintEnabled": true,
+    "window.menuBarVisibility": "toggle",
+    "workbench.colorTheme": "Monokai",
+    "editor.folding": false,
+    "editor.minimap.enabled": false,
+    "workbench.statusBar.feedback.visible": false,
+    "workbench.statusBar.visible": false,
+    "window.titleBarStyle": "custom",
+    "editor.renderIndentGuides": false,
+    "editor.cursorStyle": "block",
+    "editor.cursorBlinking": "blink",
+    "workbench.startupEditor": "none",
+    "editor.renderWhitespace": "none",
+    "breadcrumbs.enabled": false
+}
