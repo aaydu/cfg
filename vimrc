@@ -13,7 +13,9 @@ call vundle#begin()
 
 	" AutoComplete
 	Plugin 'Valloric/YouCompleteMe'
-		
+	"set completeopt -= preview
+	let g:ycm_autoclose_preview_window_after_completion=1
+
 	" Lightline 
 	Plugin 'itchyny/lightline.vim'
 	set laststatus=2
@@ -29,6 +31,7 @@ filetype plugin indent on
 "#############################################
 
 syntax on 
+
 colorscheme gruvbox
 set background=dark
 
@@ -48,7 +51,7 @@ set noswapfile
 
 " hjkl to i(up)j(left)k(down)l(right)
 noremap i k
-noremap I <Nop>
+nnoremap I <Nop>
 noremap j h
 noremap J H
 noremap k j
@@ -58,6 +61,7 @@ noremap k j
 
 " Use leader to get into normal mode (remove ctrl c) 
 inoremap <leader> <Esc><right>
+inoremap ä <Esc><right>
 inoremap <c-c> <Esc>:t.<CR>i<bs> 
 
 " Use leader+w for saving and leader+q for quitting
@@ -65,8 +69,9 @@ nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>wq :wq<CR>
 
-" Enter insert mode trough enter
+" Enter insert mode through different convenient ways 
 nnoremap <ENTER> i
+nnoremap h i
 nnoremap <Space> i<Space>
 nnoremap <bs> i<bs>
 
@@ -91,13 +96,13 @@ nnoremap o o<Esc>
 nnoremap O O<Esc>
 
 " Smart pairs
-inoremap " ""<left>
-inoremap ' ''<left>
-inoremap ( ()<left>
-inoremap [ []<left>
-inoremap { {}<left>
-inoremap {<CR> {<CR>}<ESC>O
-inoremap {;<CR> {<CR>};<ESC>O
+inoremap "" ""<left>
+inoremap '' ''<left>
+inoremap (( ()<left>
+inoremap [[ []<left>
+inoremap {{ {}<left>
+"inoremap {<CR> {<CR>}<ESC>O
+"inoremap {;<CR> {<CR>};<ESC>O
 
 " Don't leave normal mode when cutting
 vnoremap c c<Esc>
@@ -109,7 +114,6 @@ noremap <left> <Nop>
 noremap <right> <Nop>
 noremap <up> <Nop>
 noremap <down> <Nop>
-
 
 if filereadable("/etc/vim/vimrc.local")
   source /etc/vim/vimrc.local
