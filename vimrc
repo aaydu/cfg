@@ -5,26 +5,26 @@ runtime! debian.vim
 "#############################################
 
 set nocompatible
-filetype off  
+filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-	Plugin 'VundleVim/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 
 	" AutoComplete
 	Plugin 'Valloric/YouCompleteMe'
 	"set completeopt -= preview
 	let g:ycm_autoclose_preview_window_after_completion=1
 
-	" Lightline 
+	" Lightline
 	Plugin 'itchyny/lightline.vim'
 	set laststatus=2
 	
 	" Color scheme
 	Plugin 'morhetz/gruvbox'
 
-call vundle#end()           
-filetype plugin indent on 
+call vundle#end()
+filetype plugin indent on
 
 "#############################################
 "#                  Settings                 #
@@ -40,7 +40,9 @@ set relativenumber
 set foldenable
 set foldmethod=indent
 set foldlevel=99
-set clipboard=unnamed
+set clipboard=unnamedplus
+set go+=a
+set list listchars=tab:\ \ ,trail:-
 set nohlsearch
 set incsearch
 set ignorecase
@@ -49,33 +51,34 @@ set showmatch
 set mouse=a
 set noswapfile
 
-" hjkl to i(up)j(left)k(down)l(right)
-noremap i k
-nnoremap I <Nop>
-noremap j h
-noremap J H
-noremap k j
-
 " Set ö as leader
 :let mapleader = "ö"
 
-" Use leader to get into normal mode (remove ctrl c) 
+" Use leader to get into normal mode (remove ctrl c)
 inoremap <leader> <Esc><right>
-inoremap ä <Esc><right>
-inoremap <c-c> <Esc>:t.<CR>i<bs> 
+inoremap <c-c> <Esc>:t.<CR>i
 
 " Use leader+w for saving and leader+q for quitting
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
+nnoremap <Leader>Q :q!<CR>
 nnoremap <Leader>wq :wq<CR>
 
-" Enter insert mode through different convenient ways 
-nnoremap <ENTER> i
-nnoremap h i
-nnoremap <Space> i<Space>
-nnoremap <bs> i<bs>
+" hjkl to i(up)j(left)k(down)l(right)
+noremap i k
+noremap I K
+noremap j h
+noremap J H
+noremap k j
+noremap K J
+noremap h i
+noremap H I
 
-" Rebind undo to more ZZZZc
+" Faster up/down scrolling
+nnoremap <c-i> <c-b>
+nnoremap <c-k> <c-f>
+
+" Rebind undo
 nnoremap z <c-r>
 
 " Rebind fold
@@ -84,30 +87,18 @@ nnoremap <Space> za
 " Faster find /replace
 inoremap <c-f> <Esc>:/
 nnoremap <c-f> :/
-inoremap <c-r> <Esc>:%s//g<left><left>
-nnoremap <c-r> :%s//g<left><left>
+inoremap <c-r> <Esc>:%s/<C-R><C-W>//g<left><left>
+nnoremap <c-r> :%s/<C-R><C-W>//g<left><left>
 
-" Rebind jumping to next occurance
-nnoremap t f
-nnoremap T t
-
-" Switch back to normal mode after inserting new line
+" Don't leave normal mode when using o/O 
 nnoremap o o<Esc>
 nnoremap O O<Esc>
 
 " Smart pairs
 inoremap "" ""<left>
 inoremap '' ''<left>
-inoremap (( ()<left>
 inoremap [[ []<left>
 inoremap {{ {}<left>
-"inoremap {<CR> {<CR>}<ESC>O
-"inoremap {;<CR> {<CR>};<ESC>O
-
-" Don't leave normal mode when cutting
-vnoremap c c<Esc>
-nnoremap c c<Esc>
-nnoremap cc cc<Esc>
 
 " Learn to not use these
 noremap <left> <Nop>

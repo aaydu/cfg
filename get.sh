@@ -7,3 +7,5 @@ cp /usr/share/vim/vimrc .
 cp ~/.config/i3/config .
 cp ~/.config/i3/i3blocks.conf .
 
+# rxvt
+cp ~/.Xresources .
