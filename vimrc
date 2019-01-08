@@ -58,7 +58,7 @@ set noswapfile
 inoremap <leader> <Esc><right>
 inoremap <c-c> <Esc>:t.<CR>i
 
-" Use leader+w for saving and leader+q for quitting
+" More convenient saving
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>Q :q!<CR>
@@ -74,7 +74,10 @@ noremap K J
 noremap h i
 noremap H I
 
-" Faster up/down scrolling
+" Rebind backspace to ä
+inoremap ä <BS>
+
+" Rebind  up/down scrolling
 nnoremap <c-i> <c-b>
 nnoremap <c-k> <c-f>
 
@@ -97,6 +100,7 @@ nnoremap O O<Esc>
 " Smart pairs
 inoremap "" ""<left>
 inoremap '' ''<left>
+inoremap (( ()<left>
 inoremap [[ []<left>
 inoremap {{ {}<left>
 
