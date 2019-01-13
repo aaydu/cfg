@@ -22,6 +22,7 @@ Plugin 'VundleVim/Vundle.vim'
 	
 	" Color scheme
 	Plugin 'morhetz/gruvbox'
+	"let g:gruvbox_contrast_dark='hard'
 
 call vundle#end()
 filetype plugin indent on
@@ -30,13 +31,15 @@ filetype plugin indent on
 "#                  Settings                 #
 "#############################################
 
-syntax on 
+syntax on
 
 colorscheme gruvbox
 set background=dark
 
 set number
 set relativenumber
+set cursorline
+set cursorcolumn
 set foldenable
 set foldmethod=indent
 set foldlevel=99
@@ -48,6 +51,7 @@ set incsearch
 set ignorecase
 set smartcase
 set showmatch
+set showcmd
 set mouse=a
 set noswapfile
 

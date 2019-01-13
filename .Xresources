@@ -41,3 +41,10 @@ URxvt.scrollBar: false
 URxvt.font: xft:Monospace:pixelsize=16:antialias=true:hinting=true:medium
 URxvt.boldFont: xft:Monospace:pixelsize=16:antialias=true:hinting=true:bold
 URxvt.letterSpace: -1
+
+!URxvt.transparent: true
+!URxvt.shading: 20
+
+!URxvt.depth: 32
+!URxvt.background: rgba:2800/2800/2800/F500
+
