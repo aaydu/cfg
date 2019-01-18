@@ -8,6 +8,7 @@
 
 ! hard contrast: *background: #1d2021
 *background: #282828
+! #282828
 ! soft contrast: *background: #32302f
 *foreground: #ebdbb2
 ! Black + DarkGrey
@@ -38,8 +39,8 @@
 
 URxvt.perl-ext-common: font-size
 URxvt.scrollBar: false
-URxvt.font: xft:Monospace:pixelsize=16:antialias=true:hinting=true:medium
-URxvt.boldFont: xft:Monospace:pixelsize=16:antialias=true:hinting=true:bold
+URxvt.font: xft:Monospace:pixelsize=15:antialias=true:hinting=true:semibold
+URxvt.boldFont: xft:Monospace:pixelsize=15:antialias=true:hinting=true:bold
 URxvt.letterSpace: -1
 
 !URxvt.transparent: true

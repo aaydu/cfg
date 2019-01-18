@@ -114,6 +114,17 @@ bar {
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
 	position bottom
 	colors {
+#    background #000000
+#    statusline #FFFFFF
+#    separator  #454545
+# 
+#    focused_workspace  #159D70 #0DA94B #FFFFFF
+#    active_workspace   #071C25 #071C25 #FFFFFF
+#    inactive_workspace #071C25 #071C25 #888888
+#    urgent_workspace   #C30000 #C30000 #FFFFFF
+#    binding_mode       #C30000 #C30000 #FFFFFF
+
+
 		background #262626 #1e1f1c
 		statusline #F9FAF9
         	separator  #454947

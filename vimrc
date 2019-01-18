@@ -39,7 +39,7 @@ set background=dark
 set number
 set relativenumber
 set cursorline
-set cursorcolumn
+"set cursorcolumn
 set foldenable
 set foldmethod=indent
 set foldlevel=99
@@ -58,11 +58,10 @@ set noswapfile
 " Set ö as leader
 :let mapleader = "ö"
 
-" Use leader to get into normal mode (remove ctrl c)
+" Use leader to get into normal mode
 inoremap <leader> <Esc><right>
-inoremap <c-c> <Esc>:t.<CR>i
 
-" More convenient saving
+" More convenient saving/closing
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>Q :q!<CR>
@@ -70,32 +69,32 @@ nnoremap <Leader>wq :wq<CR>
 
 " hjkl to i(up)j(left)k(down)l(right)
 noremap i k
-noremap I K
+noremap i k
 noremap j h
-noremap J H
+noremap j h
 noremap k j
-noremap K J
+noremap k j
 noremap h i
-noremap H I
+noremap h i
 
-" Rebind backspace to ä
-inoremap ä <BS>
 
-" Rebind  up/down scrolling
+" Remap delete to not overwrite current buffer
+nnoremap d "_d
+nnoremap D "_D
+
+" Remap up/down scrolling
 nnoremap <c-i> <c-b>
 nnoremap <c-k> <c-f>
 
-" Rebind undo
+" Remap undo
 nnoremap z <c-r>
 
-" Rebind fold
+" Remap fold
 nnoremap <Space> za
 
-" Faster find /replace
-inoremap <c-f> <Esc>:/
-nnoremap <c-f> :/
-inoremap <c-r> <Esc>:%s/<C-R><C-W>//g<left><left>
-nnoremap <c-r> :%s/<C-R><C-W>//g<left><left>
+" Remap search/replace
+nnoremap <Leader>f /
+nnoremap <Leader>r :%s/<C-R><C-W>//g<left><left>
 
 " Don't leave normal mode when using o/O 
 nnoremap o o<Esc>

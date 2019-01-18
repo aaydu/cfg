@@ -1,11 +1,11 @@
 #/usr/bin/bash
 
 # Vim
-cp ~/.vim/vimrc .
+sudo cp ~/.vim/vimrc .
 
 # i3, i3blocks
-cp ~/.config/i3/config .
-cp ~/.config/i3/i3blocks.conf .
+sudo cp ~/.config/i3/config .
+sudo cp ~/.config/i3/i3blocks.conf .
 
 # rxvt
-cp ~/.Xresources .
+sudo cp ~/.Xresources .
