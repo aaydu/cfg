@@ -9,3 +9,11 @@ sudo cp ~/.config/i3/i3blocks.conf .
 
 # rxvt
 sudo cp ~/.Xresources .
+
+# zathura
+sudo cp ~/.config/zathura/zathurarc .
+
+# bash
+sudo cp ~/.bashrc .
+
+

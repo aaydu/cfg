@@ -9,3 +9,9 @@ cp i3blocks.conf ~/.config/i3/
 
 # rxvt
 cp .Xresources ~/
+
+# Zathura
+cp zathurarc ~/.config/zathura/
+
+# bash
+cp .bashrc ~/

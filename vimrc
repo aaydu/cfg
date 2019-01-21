@@ -69,13 +69,18 @@ nnoremap <Leader>wq :wq<CR>
 
 " hjkl to i(up)j(left)k(down)l(right)
 noremap i k
-noremap i k
+noremap I K
 noremap j h
-noremap j h
+noremap J H
 noremap k j
-noremap k j
+noremap K J
 noremap h i
-noremap h i
+noremap H I
+
+noremap <C-W>i <C-W>k
+noremap <C-W>j <C-W>h
+noremap <C-W>k <C-W>j
+noremap <C-W>h <C-W>i
 
 
 " Remap delete to not overwrite current buffer
@@ -99,6 +104,10 @@ nnoremap <Leader>r :%s/<C-R><C-W>//g<left><left>
 " Don't leave normal mode when using o/O 
 nnoremap o o<Esc>
 nnoremap O O<Esc>
+
+" Commenting out in visual block mode
+vnoremap # :s/^/#/<Esc><Esc>
+vnoremap ' :s/#/<Esc><Esc>
 
 " Smart pairs
 inoremap "" ""<left>
