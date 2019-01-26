@@ -117,3 +117,5 @@ if ! shopt -oq posix; then
 fi
 
 #export TERM=screen-256color-bce
+
+bind 'set completion-ignore-case On'

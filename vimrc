@@ -9,11 +9,10 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'VundleVim/Vundle.vim'
+	Plugin 'VundleVim/Vundle.vim'
 
 	" AutoComplete
 	Plugin 'Valloric/YouCompleteMe'
-	"set completeopt -= preview
 	let g:ycm_autoclose_preview_window_after_completion=1
 
 	" Lightline
@@ -21,8 +20,13 @@ Plugin 'VundleVim/Vundle.vim'
 	set laststatus=2
 	
 	" Color scheme
-	Plugin 'morhetz/gruvbox'
+	"Plugin 'morhetz/gruvbox'
+	Plugin 'crusoexia/vim-monokai'
 	"let g:gruvbox_contrast_dark='hard'
+
+	Plugin 'wmvanvliet/jupyter-vim'
+	let g:jupyter_mapkeys=1
+		
 
 call vundle#end()
 filetype plugin indent on
@@ -33,8 +37,9 @@ filetype plugin indent on
 
 syntax on
 
-colorscheme gruvbox
+colorscheme monokai
 set background=dark
+hi normal ctermbg=NONE guibg=NONE
 
 set number
 set relativenumber
@@ -77,11 +82,15 @@ noremap K J
 noremap h i
 noremap H I
 
+" Faster jumping
+nnoremap i 5k
+nnoremap k 5j
+
+" Jumping between splits
 noremap <C-W>i <C-W>k
 noremap <C-W>j <C-W>h
 noremap <C-W>k <C-W>j
 noremap <C-W>h <C-W>i
-
 
 " Remap delete to not overwrite current buffer
 nnoremap d "_d
@@ -101,7 +110,7 @@ nnoremap <Space> za
 nnoremap <Leader>f /
 nnoremap <Leader>r :%s/<C-R><C-W>//g<left><left>
 
-" Don't leave normal mode when using o/O 
+" Don't leave normal mode when using o/O
 nnoremap o o<Esc>
 nnoremap O O<Esc>
 
@@ -110,17 +119,21 @@ vnoremap # :s/^/#/<Esc><Esc>
 vnoremap ' :s/#/<Esc><Esc>
 
 " Smart pairs
-inoremap "" ""<left>
-inoremap '' ''<left>
-inoremap (( ()<left>
-inoremap [[ []<left>
-inoremap {{ {}<left>
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
 
 " Learn to not use these
 noremap <left> <Nop>
 noremap <right> <Nop>
 noremap <up> <Nop>
 noremap <down> <Nop>
+
+" Execute python
+"autocmd FileType python nnoremap <Leader>e :!python3 3
+"autocmd FileType python vnoremap <Leader>e :!python3<CR>
 
 if filereadable("/etc/vim/vimrc.local")
   source /etc/vim/vimrc.local
