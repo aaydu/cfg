@@ -1,5 +1,4 @@
 runtime! debian.vim
-
 "#############################################
 "#                  Plugins                  #
 "#############################################
@@ -70,7 +69,7 @@ inoremap <leader> <Esc><right>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>Q :q!<CR>
-nnoremap <Leader>wq :wq<CR>
+"nnoremap <Leader>wq :wq<CR>
 
 " hjkl to i(up)j(left)k(down)l(right)
 noremap i k
@@ -131,9 +130,11 @@ noremap <right> <Nop>
 noremap <up> <Nop>
 noremap <down> <Nop>
 
-" Execute python
-"autocmd FileType python nnoremap <Leader>e :!python3 3
-"autocmd FileType python vnoremap <Leader>e :!python3<CR>
+" Execute python in connected Jupyter-Console
+" (hacky workaround because 'JupyterSendRange' doesn't work)
+autocmd FileType python nnoremap <Leader>e :JupyterSendCount<CR>
+autocmd FileType python nnoremap <Leader>E :JupyterRunFile<CR>
+autocmd FileType python vnoremap <Leader>e c##<Esc>o##<up><Esc>p:JupyterSendCell<CR>u<up>
 
 if filereadable("/etc/vim/vimrc.local")
   source /etc/vim/vimrc.local

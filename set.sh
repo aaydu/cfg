@@ -15,3 +15,6 @@ cp zathurarc ~/.config/zathura/
 
 # bash
 cp .bashrc ~/
+
+cp rc.conf ~/.config/ranger/
+

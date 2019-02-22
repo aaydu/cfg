@@ -16,4 +16,5 @@ sudo cp ~/.config/zathura/zathurarc .
 # bash
 sudo cp ~/.bashrc .
 
-
+# ranger
+sudo cp ~/.config/ranger/rc.conf .
