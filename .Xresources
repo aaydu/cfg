@@ -64,3 +64,5 @@ URxvt.background: rgba:1c00/1c00/1c00/F000
 !00F6 is 'ö'
 URxvt.keysym.A-00F6: perl:keyboard-select:activate
 URxvt.keyboard-select.clipboard: true
+
+URxvt*.termName: screen-256color
