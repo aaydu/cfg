@@ -1,4 +1,5 @@
 runtime! debian.vim
+
 "#############################################
 "#                  Plugins                  #
 "#############################################
@@ -65,11 +66,13 @@ set noswapfile
 " Use leader to get into normal mode
 inoremap <leader> <Esc><right>
 
+" Unmap Q
+nnoremap Q <Nop>
+
 " More convenient saving/closing
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>Q :q!<CR>
-"nnoremap <Leader>wq :wq<CR>
 
 " hjkl to i(up)j(left)k(down)l(right)
 noremap i k
