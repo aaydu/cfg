@@ -105,7 +105,7 @@ set $c_l #3f3f3f
 set $c_L #CCCCCC
 
 # class                 border  backgr. text    indicator child_border
-client.focused          $c_L    $c_m    #ffffff #2e9ef4   #727272
+client.focused          $c_L    $c_m    #ffffff #70c100   #8e8d8d
 client.focused_inactive #333333 #222222 #888888 #292d2e   #222222
 client.unfocused        #333333 #222222 #888888 #292d2e   #222222
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
@@ -116,18 +116,23 @@ client.background       #ffffff
 # Spotify
 bindsym $mod+n workspace  Spotify
 for_window [class="Spotify"] move to workspace  Spotify
-exec spotify
+#exec spotify
 
 # Thunderbird
 bindsym $mod+m workspace  Mail
 for_window [class="Thunderbird"] move to workspace  Mail
 exec thunderbird
 
+# Thunderbird
+bindsym $mod+c workspace  WhatsApp
+for_window [class="Surf"] move to workspace  WhatsApp
+exec surf web.whatsapp.com
+
 # Set wallpaper
-exec_always "feh --bg-scale ~/Pictures/wallpaper8.jpg"
+# exec_always "feh --bg-scale ~/Pictures/wallpaper8.jpg"
 
 # For transparent background
-exec "compton --backend xrender"
+#exec "compton --backend xrender"
 
 # Start redshift for blue light filtering
 exec_always redshift -O 5000k

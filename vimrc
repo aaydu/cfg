@@ -36,7 +36,6 @@ filetype plugin indent on
 "#############################################
 
 syntax on
-
 colorscheme monokai
 set background=dark
 hi normal ctermbg=NONE guibg=NONE
@@ -57,16 +56,18 @@ set ignorecase
 set smartcase
 set showmatch
 set showcmd
-set mouse=a
+"set mouse=a
 set noswapfile
 
-" Set ö as leader
+" Set ö/Ö as leader
 :let mapleader = "ö"
+imap Ö <leader>
 
 " Use leader to get into normal mode
 inoremap <leader> <Esc><right>
+vnoremap <leader> <Esc>
 
-" Unmap Q
+" Unmap Q to disable Ex-mode
 nnoremap Q <Nop>
 
 " More convenient saving/closing
@@ -84,7 +85,11 @@ noremap K J
 noremap h i
 noremap H I
 
-" Faster jumping
+" visual lines
+noremap gk gj
+noremap gi gk
+
+" Faster jumping using ALT
 nnoremap i 5k
 nnoremap k 5j
 
@@ -116,9 +121,12 @@ nnoremap <Leader>r :%s/<C-R><C-W>//g<left><left>
 nnoremap o o<Esc>
 nnoremap O O<Esc>
 
+" Select all
+nnoremap <Leader>v ggVG
+
 " Commenting out in visual block mode
 vnoremap # :s/^/#/<Esc><Esc>
-vnoremap ' :s/#/<Esc><Esc>
+"vnoremap ' :s/#/<Esc><Esc>
 
 " Smart pairs
 inoremap " ""<left>
@@ -126,6 +134,13 @@ inoremap ' ''<left>
 inoremap ( ()<left>
 inoremap [ []<left>
 inoremap { {}<left>
+
+" Smart insertion of 'surrounding' chars
+vnoremap " c""<Esc><left>pb
+vnoremap ' c''<Esc><left>pb
+vnoremap ( c()<Esc><left>pb
+vnoremap [ c[]<Esc><left>pb
+vnoremap { c{}<Esc><left>pb
 
 " Learn to not use these
 noremap <left> <Nop>
