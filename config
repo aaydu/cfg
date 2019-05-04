@@ -130,6 +130,7 @@ exec surf web.whatsapp.com
 
 # Set wallpaper
 # exec_always "feh --bg-scale ~/Pictures/wallpaper8.jpg"
+exec --no-startup-id xsetroot -solid "#252525"
 
 # For transparent background
 #exec "compton --backend xrender"

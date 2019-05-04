@@ -76,11 +76,11 @@ nnoremap <Leader>q :q<CR>
 nnoremap <Leader>Q :q!<CR>
 
 " hjkl to i(up)j(left)k(down)l(right)
-noremap i k
+noremap i gk
 noremap I K
 noremap j h
 noremap J H
-noremap k j
+noremap k gj
 noremap K J
 noremap h i
 noremap H I
@@ -101,6 +101,7 @@ noremap <C-W>h <C-W>i
 
 " Remap delete to not overwrite current buffer
 nnoremap d "_d
+nnoremap dd "_dd
 nnoremap D "_D
 
 " Remap up/down scrolling
@@ -152,7 +153,8 @@ noremap <down> <Nop>
 " (hacky workaround because 'JupyterSendRange' doesn't work)
 autocmd FileType python nnoremap <Leader>e :JupyterSendCount<CR>
 autocmd FileType python nnoremap <Leader>E :JupyterRunFile<CR>
-autocmd FileType python vnoremap <Leader>e c##<Esc>o##<up><Esc>p:JupyterSendCell<CR>u<up>
+autocmd FileType python vnoremap <Leader>e :JupyterSendRange<CR>
+"autocmd FileType python vnoremap <Leader>e c##<Esc>o##<up><Esc>p:JupyterSendCell<CR>u<up>
 
 if filereadable("/etc/vim/vimrc.local")
   source /etc/vim/vimrc.local
