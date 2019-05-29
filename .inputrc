@@ -1,0 +1,10 @@
+set keymap vi-command
+"i":history-search-backward
+"k":history-search-forward
+"j":backward-char
+"h":vi-editing-mode
+"H":vi-insert-beg
+
+set editing-mode vi
+"ö":vi-movement-mode
+"\C-l":clear-screen
