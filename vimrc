@@ -1,4 +1,4 @@
-runtime! debian.vim
+"runtime! debian.vim
 
 "#############################################
 "#                  Plugins                  #
@@ -58,6 +58,8 @@ set showmatch
 set showcmd
 "set mouse=a
 set noswapfile
+set scrolloff=5
+set tabstop=4 shiftwidth=4 expandtab
 
 " Set ö/Ö as leader
 :let mapleader = "ö"
@@ -150,12 +152,7 @@ noremap <up> <Nop>
 noremap <down> <Nop>
 
 " Execute python in connected Jupyter-Console
-" (hacky workaround because 'JupyterSendRange' doesn't work)
 autocmd FileType python nnoremap <Leader>e :JupyterSendCount<CR>
 autocmd FileType python nnoremap <Leader>E :JupyterRunFile<CR>
 autocmd FileType python vnoremap <Leader>e :JupyterSendRange<CR>
-"autocmd FileType python vnoremap <Leader>e c##<Esc>o##<up><Esc>p:JupyterSendCell<CR>u<up>
 
-if filereadable("/etc/vim/vimrc.local")
-  source /etc/vim/vimrc.local
-endif

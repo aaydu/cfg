@@ -10,6 +10,7 @@ parse_git_branch() {
 
 PS1="[\[\e[1;32m\]\u@\h\[\e[m\] \[\e[1;34m\]\W\[\e[m\]]\[\e[1;91m\]\$(parse_git_branch)\[\e[m\] "
 
+alias rm='rm -i'
 alias ls='ls --color=auto'
 alias ll='ls -alF'
 alias la='ls -A'
