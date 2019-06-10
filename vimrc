@@ -1,5 +1,3 @@
-"runtime! debian.vim
-
 "#############################################
 "#                  Plugins                  #
 "#############################################
@@ -9,24 +7,13 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-	Plugin 'VundleVim/Vundle.vim'
-
-	" AutoComplete
-	Plugin 'Valloric/YouCompleteMe'
-	let g:ycm_autoclose_preview_window_after_completion=1
-
-	" Lightline
-	Plugin 'itchyny/lightline.vim'
-	set laststatus=2
-	
-	" Color scheme
-	"Plugin 'morhetz/gruvbox'
+    Plugin 'VundleVim/Vundle.vim'
 	Plugin 'crusoexia/vim-monokai'
-	"let g:gruvbox_contrast_dark='hard'
-
 	Plugin 'wmvanvliet/jupyter-vim'
-	let g:jupyter_mapkeys=1
-		
+    Plugin 'itchyny/lightline.vim'
+	set laststatus=2
+    Plugin 'Valloric/YouCompleteMe'
+    let g:ycm_autoclose_preview_window_after_completion=1
 
 call vundle#end()
 filetype plugin indent on
@@ -68,6 +55,7 @@ imap Ö <leader>
 " Use leader to get into normal mode
 inoremap <leader> <Esc><right>
 vnoremap <leader> <Esc>
+cnoremap <leader> <CR>
 
 " Unmap Q to disable Ex-mode
 nnoremap Q <Nop>
@@ -87,10 +75,6 @@ noremap K J
 noremap h i
 noremap H I
 
-" visual lines
-noremap gk gj
-noremap gi gk
-
 " Faster jumping using ALT
 nnoremap i 5k
 nnoremap k 5j
@@ -101,12 +85,15 @@ noremap <C-W>j <C-W>h
 noremap <C-W>k <C-W>j
 noremap <C-W>h <C-W>i
 
-" Remap delete to not overwrite current buffer
-nnoremap d "_d
-nnoremap dd "_dd
-nnoremap D "_D
+" Remap annoying buffer overwriting when deleting
+noremap d "_d
+noremap dd "_dd
+noremap D "_D
+noremap x "_x
+noremap X "_X
+vnoremap p "_dP
 
-" Remap up/down scrolling
+" Remap up/down scroll
 nnoremap <c-i> <c-b>
 nnoremap <c-k> <c-f>
 
@@ -126,6 +113,12 @@ nnoremap O O<Esc>
 
 " Select all
 nnoremap <Leader>v ggVG
+
+" Smart indent
+nnoremap > >>
+nnoremap < <<
+vnoremap < <gv
+vnoremap > >gv
 
 " Commenting out in visual block mode
 vnoremap # :s/^/#/<Esc><Esc>
@@ -150,9 +143,12 @@ noremap <left> <Nop>
 noremap <right> <Nop>
 noremap <up> <Nop>
 noremap <down> <Nop>
+inoremap <left> <Nop>
+inoremap <right> <Nop>
+inoremap <up> <Nop>
+inoremap <down> <Nop>
 
 " Execute python in connected Jupyter-Console
 autocmd FileType python nnoremap <Leader>e :JupyterSendCount<CR>
 autocmd FileType python nnoremap <Leader>E :JupyterRunFile<CR>
 autocmd FileType python vnoremap <Leader>e :JupyterSendRange<CR>
-
