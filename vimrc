@@ -1,7 +1,6 @@
 "#############################################
 "#                  Plugins                  #
 "#############################################
-
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -11,11 +10,10 @@ call vundle#begin()
 	Plugin 'crusoexia/vim-monokai'
 	Plugin 'wmvanvliet/jupyter-vim'
     Plugin 'itchyny/lightline.vim'
-	set laststatus=2
     Plugin 'Valloric/YouCompleteMe'
     let g:ycm_autoclose_preview_window_after_completion=1
 
-call vundle#end()
+call vundle#end() 
 filetype plugin indent on
 
 "#############################################
@@ -31,6 +29,7 @@ set number
 set relativenumber
 set cursorline
 "set cursorcolumn
+set laststatus=2
 set foldenable
 set foldmethod=indent
 set foldlevel=99
@@ -66,36 +65,29 @@ nnoremap <Leader>q :q<CR>
 nnoremap <Leader>Q :q!<CR>
 
 " hjkl to i(up)j(left)k(down)l(right)
-noremap i gk
-noremap I K
-noremap j h
-noremap J H
-noremap k gj
-noremap K J
-noremap h i
-noremap H I
+noremap k gk
+noremap j gj
 
 " Faster jumping using ALT
-nnoremap i 5k
-nnoremap k 5j
-
-" Jumping between splits
-noremap <C-W>i <C-W>k
-noremap <C-W>j <C-W>h
-noremap <C-W>k <C-W>j
-noremap <C-W>h <C-W>i
+nnoremap k 5k
+nnoremap j 5j
 
 " Remap annoying buffer overwriting when deleting
 noremap d "_d
 noremap dd "_dd
 noremap D "_D
+noremap c "_c
+noremap cc "_cc
+noremap C "_C
+noremap s "_s
+noremap S "_S
 noremap x "_x
 noremap X "_X
 vnoremap p "_dP
 
 " Remap up/down scroll
-nnoremap <c-i> <c-b>
-nnoremap <c-k> <c-f>
+nnoremap <c-k> <c-b>
+nnoremap <c-j> <c-f>
 
 " Remap undo
 nnoremap z <c-r>
@@ -143,10 +135,6 @@ noremap <left> <Nop>
 noremap <right> <Nop>
 noremap <up> <Nop>
 noremap <down> <Nop>
-inoremap <left> <Nop>
-inoremap <right> <Nop>
-inoremap <up> <Nop>
-inoremap <down> <Nop>
 
 " Execute python in connected Jupyter-Console
 autocmd FileType python nnoremap <Leader>e :JupyterSendCount<CR>
