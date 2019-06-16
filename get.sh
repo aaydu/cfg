@@ -1,7 +1,7 @@
 #/usr/bin/bash
 
 # Vim
-sudo cp ~/.vim/vimrc .
+sudo cp ~/.vimrc .
 
 # i3, i3blocks
 sudo cp ~/.config/i3/config .

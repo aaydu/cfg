@@ -1,7 +1,7 @@
 #/usr/bin/bash
 
 # Vim
-cp vimrc ~/.vim/
+cp .vimrc ~/
 
 # i3, i3blocks
 cp config ~/.config/i3/
