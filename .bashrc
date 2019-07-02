@@ -17,6 +17,7 @@ alias ..='cd ..'
 alias rm='rm -i'
 alias ls='ls --color=auto'
 alias ll='ls -l -h --color=auto'
+alias z='zathura --fork'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
@@ -35,3 +36,7 @@ export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${GUROBI_HOME}/lib"
 export FZF_DEFAULT_OPTS='--bind=ctrl-i:up,ctrl-k:down'
 
 set -o vi
+
+export XMODIFIERS=@im=fcitx
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
