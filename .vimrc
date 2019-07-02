@@ -24,6 +24,7 @@ syntax on
 colorscheme monokai
 set background=dark
 hi normal ctermbg=NONE guibg=NONE
+autocmd VimLeave * call system("xclip -selection clipboard -i", getreg('+'))
 
 set number
 set relativenumber
