@@ -49,7 +49,7 @@ set scrolloff=5
 set tabstop=4 shiftwidth=4 expandtab
 
 " Set ö/Ö as leader
-:let mapleader = "ö"
+:let mapleader = ";"
 imap Ö <leader>
 
 " Use leader to get into normal mode
@@ -69,10 +69,6 @@ nnoremap <Leader>Q :q!<CR>
 " Visual lines instead of logical lines
 noremap k gk
 noremap j gj
-
-" Faster jumping using ALT
-nnoremap k 5k
-nnoremap j 5j
 
 " Remap annoying buffer overwriting when deleting
 noremap d "_d
@@ -127,13 +123,6 @@ vnoremap > >gv
 vnoremap # :s/^/#/<Esc><Esc>
 "vnoremap ' :s/#/<Esc><Esc>
 
-" Smart pairs
-inoremap " ""<left>
-inoremap ' ''<left>
-inoremap ( ()<left>
-inoremap [ []<left>
-inoremap { {}<left>
-
 " Smart insertion of 'surrounding' chars
 vnoremap " c""<Esc><left>pb
 vnoremap ' c''<Esc><left>pb
@@ -153,3 +142,5 @@ autocmd FileType python nnoremap <Leader>E :JupyterRunFile<CR>
 autocmd FileType python vnoremap <Leader>e :JupyterSendRange<CR>
 
 autocmd FileType tex,latex nnoremap <Leader>w :w<CR> :!texi2pdf %<CR><CR>
+
+au BufReadPost *.ftl set syntax=python
