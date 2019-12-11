@@ -8,9 +8,10 @@ call vundle#begin()
 
     Plugin 'VundleVim/Vundle.vim'
 	Plugin 'crusoexia/vim-monokai'
-	Plugin 'wmvanvliet/jupyter-vim'
+    "Plugin 'wmvanvliet/jupyter-vim'
     Plugin 'itchyny/lightline.vim'
     Plugin 'Valloric/YouCompleteMe'
+    Plugin 'mbbill/undotree'
     let g:ycm_autoclose_preview_window_after_completion=1
 
 call vundle#end() 
@@ -43,17 +44,19 @@ set ignorecase
 set smartcase
 set showmatch
 set showcmd
-"set mouse=a
+set mouse=a
 set noswapfile
-set scrolloff=5
+set scrolloff=10
 set tabstop=4 shiftwidth=4 expandtab
+set undofile
+set undodir=~/.vim/undodir
 
-" Set ö/Ö as leader
+" Set ; as leader
 :let mapleader = ";"
 imap Ö <leader>
 
 " Use leader to get into normal mode
-inoremap <leader> <Esc><right>
+inoremap <leader> <Esc>
 vnoremap <leader> <Esc>
 cnoremap <leader> <CR>
 
@@ -83,27 +86,30 @@ noremap x "_x
 noremap X "_X
 vnoremap p "_dP
 
-" Still make cutting possible with leader
+" Make cutting possible with leader
 noremap <Leader>d d
 noremap <Leader>dd dd
 noremap <Leader>D D
 noremap <Leader>x x
+noremap <Leader>X "_X
 
 " Make Y consist with D and C
 nnoremap Y y$
 
-" Remap up/down scroll TODO: get used to this instead
+" Remap up/down scroll
 nnoremap <c-k> <c-b>
 nnoremap <c-j> <c-f>
 
-" Remap undo
+" Remap redo
 nnoremap z <c-r>
+
+" Open undo-tree plugin
+nnoremap <leader>u :UndotreeToggle<CR>
 
 " Remap fold
 nnoremap <Space> za
 
 " Remap search/replace
-nnoremap <Leader>f /
 nnoremap <Leader>r :%s/<C-R><C-W>//g<left><left>
 
 " Don't leave normal mode when using o/O
@@ -130,11 +136,11 @@ vnoremap ( c()<Esc><left>pb
 vnoremap [ c[]<Esc><left>pb
 vnoremap { c{}<Esc><left>pb
 
-" Learn to not use these
-noremap <left> <Nop>
-noremap <right> <Nop>
-noremap <up> <Nop>
-noremap <down> <Nop>
+" Pane movement
+nnoremap <Leader>h <C-w>h
+nnoremap <Leader>j <C-w>j
+nnoremap <Leader>k <C-w>k
+nnoremap <Leader>l <C-w>l
 
 " Execute python in connected Jupyter-Console
 autocmd FileType python nnoremap <Leader>e :JupyterSendCount<CR>
@@ -142,5 +148,3 @@ autocmd FileType python nnoremap <Leader>E :JupyterRunFile<CR>
 autocmd FileType python vnoremap <Leader>e :JupyterSendRange<CR>
 
 autocmd FileType tex,latex nnoremap <Leader>w :w<CR> :!texi2pdf %<CR><CR>
-
-au BufReadPost *.ftl set syntax=python
