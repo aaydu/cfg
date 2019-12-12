@@ -99,6 +99,8 @@ nnoremap Y y$
 " Remap up/down scroll
 nnoremap <c-k> <c-b>
 nnoremap <c-j> <c-f>
+vnoremap <c-k> <c-b>
+vnoremap <c-j> <c-f>
 
 " Remap redo
 nnoremap z <c-r>
