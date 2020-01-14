@@ -45,6 +45,7 @@ set smartcase
 set showmatch
 set showcmd
 set mouse=a
+set ttymouse=sgr
 set noswapfile
 set scrolloff=10
 set tabstop=4 shiftwidth=4 expandtab
@@ -138,11 +139,14 @@ vnoremap ( c()<Esc><left>pb
 vnoremap [ c[]<Esc><left>pb
 vnoremap { c{}<Esc><left>pb
 
-" Pane movement
+" Pane movement/control
 nnoremap <Leader>h <C-w>h
 nnoremap <Leader>j <C-w>j
 nnoremap <Leader>k <C-w>k
 nnoremap <Leader>l <C-w>l
+nnoremap <Leader>- <C-w>-
+nnoremap <Leader>+ <C-w>+
+nnoremap <Leader>= <C-w>=
 
 " Execute python in connected Jupyter-Console
 autocmd FileType python nnoremap <Leader>e :JupyterSendCount<CR>
@@ -150,3 +154,5 @@ autocmd FileType python nnoremap <Leader>E :JupyterRunFile<CR>
 autocmd FileType python vnoremap <Leader>e :JupyterSendRange<CR>
 
 autocmd FileType tex,latex nnoremap <Leader>w :w<CR> :!texi2pdf %<CR><CR>
+"autocmd FileType markdown nnoremap <Leader>w :w<CR> :!pandoc -o README.pdf %<CR><CR>
+autocmd FileType markdown nnoremap <Leader>w :w<CR> :!pandoc -t html --css='style.css' -o README.html %<CR><CR>
