@@ -7,11 +7,11 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
     Plugin 'VundleVim/Vundle.vim'
-	Plugin 'crusoexia/vim-monokai'
+    Plugin 'crusoexia/vim-monokai'
     "Plugin 'wmvanvliet/jupyter-vim'
     Plugin 'itchyny/lightline.vim'
-    Plugin 'Valloric/YouCompleteMe'
     Plugin 'mbbill/undotree'
+    Plugin 'Valloric/YouCompleteMe'
     let g:ycm_autoclose_preview_window_after_completion=1
 
 call vundle#end() 
@@ -54,7 +54,6 @@ set undodir=~/.vim/undodir
 
 " Set ; as leader
 :let mapleader = ";"
-imap Ö <leader>
 
 " Use leader to get into normal mode
 inoremap <leader> <Esc>
@@ -94,7 +93,7 @@ noremap <Leader>D D
 noremap <Leader>x x
 noremap <Leader>X "_X
 
-" Make Y consist with D and C
+" Make Y consistent with D and C
 nnoremap Y y$
 
 " Remap up/down scroll
@@ -132,13 +131,6 @@ vnoremap > >gv
 vnoremap # :s/^/#/<Esc><Esc>
 "vnoremap ' :s/#/<Esc><Esc>
 
-" Smart insertion of 'surrounding' chars
-vnoremap " c""<Esc><left>pb
-vnoremap ' c''<Esc><left>pb
-vnoremap ( c()<Esc><left>pb
-vnoremap [ c[]<Esc><left>pb
-vnoremap { c{}<Esc><left>pb
-
 " Pane movement/control
 nnoremap <Leader>h <C-w>h
 nnoremap <Leader>j <C-w>j
@@ -154,5 +146,4 @@ autocmd FileType python nnoremap <Leader>E :JupyterRunFile<CR>
 autocmd FileType python vnoremap <Leader>e :JupyterSendRange<CR>
 
 autocmd FileType tex,latex nnoremap <Leader>w :w<CR> :!texi2pdf %<CR><CR>
-"autocmd FileType markdown nnoremap <Leader>w :w<CR> :!pandoc -o README.pdf %<CR><CR>
-autocmd FileType markdown nnoremap <Leader>w :w<CR> :!pandoc -t html --css='style.css' -o README.html %<CR><CR>
+"autocmd FileType markdown nnoremap <Leader>w :w<CR> :!pandoc -t html --css='style.css' -o README.html %<CR><CR>
