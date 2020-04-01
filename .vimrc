@@ -12,7 +12,6 @@ call vundle#begin()
     Plugin 'itchyny/lightline.vim'
     Plugin 'mbbill/undotree'
     Plugin 'Valloric/YouCompleteMe'
-    Plugin 'mbbill/undotree'
     let g:ycm_autoclose_preview_window_after_completion=1
 
 call vundle#end() 
@@ -132,7 +131,6 @@ vnoremap > >gv
 vnoremap # :s/^/#/<Esc><Esc>
 "vnoremap ' :s/#/<Esc><Esc>
 
-<<<<<<< HEAD
 " Smart insertion of 'surrounding' chars
 vnoremap " c""<Esc><left>pb
 vnoremap ' c''<Esc><left>pb
