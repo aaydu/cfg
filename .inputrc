@@ -1,9 +1,10 @@
 set keymap vi-command
+"v": ""
 "k":history-search-backward
 "j":history-search-forward
 
 set editing-mode vi
-"ö":vi-movement-mode
+";":vi-movement-mode
 "\C-l":clear-screen
 
 set show-mode-in-prompt

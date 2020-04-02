@@ -26,6 +26,7 @@ colorscheme monokai
 set background=dark
 hi normal ctermbg=NONE guibg=NONE
 autocmd VimLeave * call system("xclip -selection clipboard -i", getreg('+'))
+autocmd VimEnter * silent !echo -ne "\e[2 q"
 
 set number
 set relativenumber

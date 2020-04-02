@@ -19,21 +19,15 @@ alias ls='ls --color=auto'
 alias ll='ls -l -h --color=auto'
 alias z='zathura --fork'
 alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
 alias search='~/.scripts/./search'
 alias cdd='. ~/.scripts/./cdd'
+alias sd='st -e ~/.scripts/./sd $(pwd) >/dev/null &'
 alias wttr='curl wttr.in/?1n'
 alias dud='sudo du -h -d1'
 
 bind 'set completion-ignore-case On'
 
-export GUROBI_HOME="/opt/gurobi811/linux64" 
-export PATH="${PATH}:${GUROBI_HOME}/bin" 
-export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${GUROBI_HOME}/lib"
-
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-export FZF_DEFAULT_OPTS='--bind=ctrl-i:up,ctrl-k:down'
 
 set -o vi
 
