@@ -1,0 +1,163 @@
+set $mod Mod4
+font pango: System San Francisco Display Bold 8, Font Awesome Bold 8
+floating_modifier $mod
+mouse_warping none
+
+bindsym $mod+Shift+q kill
+bindsym $mod+Shift+r restart
+
+# Window focus/move
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# Fullscreen/split toggle & layouts
+bindsym $mod+f fullscreen toggle
+bindsym $mod+v split toggle
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# Toggle/focus for tiling/floating
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
+
+# Switch to workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+n workspace  Spotify
+bindsym $mod+m workspace  Mail
+bindsym $mod+c workspace  WhatsApp
+
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+
+# Resizing container
+bindsym $mod+Ctrl+h resize shrink width 20 px
+bindsym $mod+Ctrl+j resize grow height 20 px
+bindsym $mod+Ctrl+k resize shrink height 20 px
+bindsym $mod+Ctrl+l resize grow width 20 px
+
+bar {
+    status_command i3blocks -c ~/.config/i3/i3blocks.conf
+	position bottom
+	colors {
+		background #1c1c1c
+		statusline #EEEEEE
+                           #border backgr. text
+        focused_workspace  #555555 #555555 #FFFFFF
+        active_workspace   #292929 #292929 #EEEEEE
+        inactive_workspace #292929 #292929 #EEEEEE
+        binding_mode       #aaaaaa #333333 #EEEEEE
+        urgent_workspace   #AA0000 #AA0000 #EEEEEE
+	}
+}
+
+# class                 border  backgr. text    indica. child_border
+client.focused          $000000 $000000 #ffffff #00AA00 #777777
+client.focused_inactive #777777 #292929 #EEEEEE #005500 #222222
+client.unfocused        #777777 #292929 #EEEEEE #005500 #222222
+client.urgent           #777777 #900000 #ffffff #AA0000 #AA0000
+client.placeholder      #777777 #0c0c0c #ffffff #005500 #777777
+
+client.background       #ffffff
+
+new_window pixel 0
+# Gaps
+default_border pixel 2
+gaps inner 5
+smart_gaps on
+
+bindsym $mod+Escape mode "$mode_system"
+set $mode_system [l]ock, [e]xit, [s]uspend, [h]ibernate, [r]eboot, [Shift+s]hutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id blurlock, mode "default"
+    bindsym s exec --no-startup-id systemctl suspend, mode "default"
+    bindsym e exec --no-startup-id i3-msg exit, mode "default"
+    bindsym h exec --no-startup-id systemctl hibernate, mode "default"
+    bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id systemctl poweroff, mode "default"
+
+    # exit system mode: "Enter" or "Escape"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+# Some default tools
+bindsym $mod+F1 exec pcmanfm
+bindsym $mod+F2 exec firefox
+bindsym $mod+F3 exec "firefox --private-window"
+
+# Launching hotkeys
+bindsym $mod+Return exec st
+bindsym $mod+Shift+Return exec st -e ~/.scripts/./cddt
+bindsym $mod+d exec dmenu_run -b
+bindsym $mod+P exec flameshot gui
+bindsym $mod+Ctrl+1 exec pcmanfm
+bindsym $mod+Ctrl+2 exec firefox
+bindsym $mod+Ctrl+3 exec firefox --private-window
+bindsym $mod+Ctrl+4 exec kolourpaint
+
+# Auto-move certain apps
+for_window [class="Spotify"] move to workspace  Spotify
+for_window [class="Thunderbird"] move to workspace  Mail
+for_window [class="qutebrowser"] move to workspace  WhatsApp
+
+# Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-volume 0 +5% && pkill -RTMIN+2 i3blocks"
+bindsym XF86AudioLowerVolume exec --no-startup-id "pactl set-sink-volume 0 -5% && pkill -RTMIN+2 i3blocks"
+bindsym XF86AudioMute exec --no-startup-id "pactl set-sink-mute 0 toggle && pkill -RTMIN+2 i3blocks"
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec --no-startup-id "xbacklight -inc 10 && pkill -RTMIN+1 i3blocks"
+bindsym XF86MonBrightnessDown exec --no-startup-id "xbacklight -dec 10 && pkill -RTMIN+1 i3blocks"
+
+# Multimedia keys
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+# Auto-start some apps
+#exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id xfce4-power-manager
+exec --no-startup-id xautolock -time 10 -locker blurlock
+exec --no-startup-id dropbox
+exec --no-startup-id thunderbird
+exec --no-startup-id qutebrowser web.whatsapp.com
+exec --no-startup-id dunst
+exec --no-startup-id nm-applet
+#exec --no-startup-id spotify
+
+# Configure screen
+exec --no-startup-id xsetroot -solid "#252525"
+exec --no-startup-id redshift -O 5000k
+#exec --no-startup-id "compton --backend xrender"
+#exec "feh --bg-scale ~/Pictures/shinjuku.jpg" # Wallpaper
+
+# Configure keyboard
+exec --no-startup-id "setxkbmap -layout us"
+exec --no-startup-id xinput set-prop 11 279 1 # Enable tapping on touchpad, note that 279 can change on update
+#exec --no-startup-id fcitx -d # for jap. layout
+exec_always --no-startup-id "xmodmap ~/.Xmodmap"
+exec_always --no-startup-id "xset r rate 240 30" # key delay/repeat
+exec_always --no-startup-id "xkbset sticky -twokey -latchlock" # Sticky shift
