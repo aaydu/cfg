@@ -4,10 +4,9 @@ HISTFILESIZE=2000
 shopt -s histappend
 shopt -s checkwinsize
 
-parse_git_branch() {
-     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+parse_git_branch() { 
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/' 
 }
-
 PS1="[\[\e[1;32m\]\u@\h\[\e[m\] \[\e[1;34m\]\W\[\e[m\]]\[\e[1;91m\]\$(parse_git_branch)\[\e[m\] "
 
 export EDITOR=vim
@@ -19,19 +18,28 @@ alias ls='ls --color=auto'
 alias ll='ls -l -h --color=auto'
 alias z='zathura --fork'
 alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
 alias search='~/.scripts/./search'
 alias cdd='. ~/.scripts/./cdd'
 alias sd='st -e ~/.scripts/./sd $(pwd) >/dev/null &'
 alias wttr='curl wttr.in/?1n'
 alias dud='sudo du -h -d1'
-alias less='lesskey'
+alias qt='qutebrowser'
+alias lg='lazygit'
+alias timer='~/.scripts/./timer'
 
 bind 'set completion-ignore-case On'
-
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
-set -o vi
 
 export XMODIFIERS=@im=fcitx
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
+
+set -o vi
+
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+
+export PYTHONPATH=${PYTHONPATH}:/home/aa/MA/test/ab3dmot
+export PYTHONPATH=${PYTHONPATH}:/home/aa/MA/test/Xinshuo_PyToolbox
