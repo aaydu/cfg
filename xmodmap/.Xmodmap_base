@@ -5,9 +5,9 @@ keycode 45 = k K Up Up
 keycode 46 = l L Right Right
 
 ! media keys
-keycode 58 = m M XF86AudioMute XF86AudioMute
-keycode 59 = comma less XF86AudioLowerVolume XF86AudioLowerVolume
-keycode 60 = period greater XF86AudioRaiseVolume XF86AudioRaiseVolume
+!keycode 58 = m M XF86AudioMute XF86AudioMute
+!keycode 59 = comma less XF86AudioLowerVolume XF86AudioLowerVolume
+!keycode 60 = period greater XF86AudioRaiseVolume XF86AudioRaiseVolume
 
 ! Umlaute
 keycode 30 = u U udiaeresis Udiaeresis
