@@ -1,0 +1,23 @@
+#!/bin/bash
+
+LOC="Aachen"
+
+# TODO just do one query and split by delimiter..
+TEMP=$(curl -s "wttr.in/$LOC?format=%t")
+WEATHER=$(curl -s "wttr.in/$LOC?format=%c")
+
+# Replace unicode symbols with matching font awesome ones
+
+case $WEATHER in
+☀️) S="" ;;
+☁️|⛅️) S="" ;;
+🌦) S="" ;;
+🌧) S= ;;
+🌩|⛈) S="" ;;
+🌫) S="" ;;
+🌨) S="" ;;
+*) S=$WEATHER ;;
+esac
+
+echo $LOC: $S $TEMP
+echo $S $TEMP

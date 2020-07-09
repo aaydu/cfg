@@ -1,0 +1,2 @@
+#!/bin/bash
+echo $(pacmd list-sinks | grep -A 10 "* index" | grep volume| grep -o '[^ ]*%' | awk 'NR==1{print $1}')

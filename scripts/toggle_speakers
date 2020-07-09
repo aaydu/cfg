@@ -1,0 +1,15 @@
+#!/bin/bash 
+current_source=$(current_volume_source)
+new_source=$(( ($current_source+1) % 2 ))
+
+#if [ "$current_source" == "0" ]; then
+#    new_source=4
+#else
+#    new_source=0
+#fi
+
+pacmd set-default-sink $new_source
+pacmd list-sink-inputs | grep index | while read line
+do
+pacmd move-sink-input `echo $line | cut -f2 -d' '` $new_source
+done

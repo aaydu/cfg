@@ -1,0 +1,4 @@
+#!/bin/bash
+echo "notify-send 'REMINDER' '${2}' -u critical" | at now + $1 minutes
+notify-send "TIMER STARTED" "Time: ${1} minute(s)
+Message: ${2}"

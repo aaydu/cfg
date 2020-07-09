@@ -1,0 +1,33 @@
+#!/bin/bash
+# Based on http://openweathermap.org/current
+API_KEY="167ebdbe68854b8d8605a202cf41e972"
+
+# Check on http://openweathermap.org/find
+CITY="Aachen"
+CITY_ID="3247449"
+
+URGENT_LOWER=0
+URGENT_HIGHER=30
+
+WEATHER_URL="http://api.openweathermap.org/data/2.5/weather?id=${CITY_ID}&APPID=${API_KEY}&units=metric"
+
+DATA=$(wget -qO- "${WEATHER_URL}")
+WEATHER=$(echo "${DATA}" | grep -o -e '\"main\":\"[a-Z]*\"' | awk -F ':' '{print $2}' | tr -d '"')
+TEMP=$(echo "${DATA}" | grep -o -e '\"temp\":\-\?[0-9]*' | awk -F ':' '{print $2}' | tr -d '"')
+
+case "$WEATHER" in
+*Clear*) S="" ;;
+*Cloud*) S="" ;;
+*Rain* | *Drizzle*) S="" ;;
+*Thunderstorm*) S="" ;;
+*Fog* | *Mist*) S="" ;;
+*) S="?" ;;
+esac
+
+echo "${CITY}: ${S}  ${TEMP}°C"
+echo "${S}  ${TEMP}°C"
+#echo ""
+
+if [[ "${T}" -lt "${URGENT_LOWER}" ]] || [[ "${T}" -gt "${URGENT_HIGHER}" ]]; then
+  exit 33
+fi

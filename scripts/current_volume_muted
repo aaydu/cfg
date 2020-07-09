@@ -1,0 +1,2 @@
+#!/bin/bash
+echo $(pacmd list-sinks | grep -A 11 "* index" | grep muted | awk '{print $2}')

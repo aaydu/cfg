@@ -1,0 +1,2 @@
+#!/bin/bash
+echo $(pacmd list-sinks | grep "*" | awk '{ print $NF}')

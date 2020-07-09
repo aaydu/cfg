@@ -1,0 +1,21 @@
+#!/bin/bash
+src=$(current_volume_source)
+level=$(current_volume_level)
+muted=$(current_volume_muted)
+
+if (("$src" == 0))
+then
+    icon=
+else
+    icon=
+fi
+
+if [ "$muted" == "yes" ]
+then
+    value="MUTED"
+else
+    value=$level
+fi
+
+echo $icon $value
+echo $icon $value

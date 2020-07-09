@@ -1,0 +1,12 @@
+#/bin/bash
+
+# Either fzf or dmenu
+case $1 in
+	dmenu) finder="dmenu -l 10 -i" ;;
+	*) finder="fzf" ;;
+esac
+
+path=$(fd -H -t d "" ~ | $finder )
+echo cd $path | cat ~/.bashrc - > /tmp/.bashrc_for_cddt
+bash --rcfile /tmp/.bashrc_for_cddt -i
+rm  /tmp/.bashrc_for_cddt

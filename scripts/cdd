@@ -1,0 +1,3 @@
+#!/bin/bash
+path=`fd -H -t d "" ~ | fzf`
+cd $path

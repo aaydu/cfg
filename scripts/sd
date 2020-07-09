@@ -1,0 +1,4 @@
+path=$1
+echo cd $path | cat ~/.bashrc - > /tmp/.bashrc_for_sd
+bash --rcfile /tmp/.bashrc_for_sd -i
+rm /tmp/.bashrc_for_sd
