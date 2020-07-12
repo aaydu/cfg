@@ -8,6 +8,7 @@ call vundle#begin()
 
     Plugin 'VundleVim/Vundle.vim'
     Plugin 'crusoexia/vim-monokai'
+    Plugin 'arcticicestudio/nord-vim'
     "Plugin 'wmvanvliet/jupyter-vim'
     Plugin 'itchyny/lightline.vim'
     Plugin 'mbbill/undotree'
@@ -62,7 +63,7 @@ vnoremap <Leader> <Esc>
 cnoremap <Leader> <CR>
 
 " Write ; by triple tap (change this)
-nnoremap <Leader><Leader> a;
+"nnoremap <Leader><Leader> a;
 
 " Unmap useless, annoying stuff
 nnoremap Q <Nop>
@@ -110,7 +111,7 @@ vnoremap <c-j> <c-f>
 nnoremap z <c-r>
 
 " Open undo-tree plugin
-nnoremap <leader>u :UndotreeToggle<CR>
+nnoremap <leader>U :UndotreeToggle<CR>
 
 " Remap fold
 nnoremap <Space> za
