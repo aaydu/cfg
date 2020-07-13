@@ -107,7 +107,9 @@ client.background       #ffffff
 new_window pixel 0
 # Gaps
 default_border pixel 2
-gaps inner 5
+gaps inner 0
+smart_gaps on
+smart_borders on
 
 bindsym $mod+Escape mode "$mode_system"
 set $mode_system [l]ock, [e]xit, [s]uspend, [h]ibernate, [r]eboot, [Shift+s]hutdown
