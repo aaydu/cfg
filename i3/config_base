@@ -109,7 +109,7 @@ new_window pixel 0
 default_border pixel 2
 gaps inner 0
 smart_gaps on
-smart_borders on
+#smart_borders on
 
 bindsym $mod+Escape mode "$mode_system"
 set $mode_system [l]ock, [e]xit, [s]uspend, [h]ibernate, [r]eboot, [Shift+s]hutdown
@@ -153,6 +153,7 @@ exec --no-startup-id qutebrowser web.whatsapp.com
 exec --no-startup-id dunst
 exec --no-startup-id nm-applet
 exec --no-startup-id dropbox
+exec --no-startup-id flameshot
 #exec --no-startup-id spotify
 
 # Configure screen
@@ -167,5 +168,5 @@ exec_always xrandr --output DVI-D-1 --mode 1280x1024 --right-of DVI-I-1
 exec --no-startup-id  "setxkbmap -layout us"
 exec --no-startup-id fcitx -d # for jap. layout
 exec_always --no-startup-id "xmodmap ~/.Xmodmap"
-exec_always --no-startup-id "xset r rate 240 30" # key delay/repeat
+exec_always --no-startup-id "xset r rate 240 35" # key delay/repeat
 exec_always --no-startup-id "xkbset sticky -twokey -latchlock" # Sticky shift
