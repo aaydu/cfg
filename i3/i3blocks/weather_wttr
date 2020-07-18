@@ -1,23 +1,24 @@
-#!/bin/bash
+#!/bin/python
+import requests as R
 
-LOC="Aachen"
+l = 'Aachen' # location
 
-# TODO just do one query and split by delimiter..
-TEMP=$(curl -s "wttr.in/$LOC?format=%t")
-WEATHER=$(curl -s "wttr.in/$LOC?format=%c")
+t = R.get('http://wttr.in/{loc}?format=%t').text # temperature
+s = R.get('http://wttr.in/{loc}?format=%c').text # weather symbol
 
-# Replace unicode symbols with matching font awesome ones
+if len(t) > 10 | len(s) > 10: # probably error response
+    print(l+ ': ?'); exit(0)
 
-case $WEATHER in
-☀️) S="" ;;
-☁️|⛅️) S="" ;;
-🌦) S="" ;;
-🌧) S= ;;
-🌩|⛈) S="" ;;
-🌫) S="" ;;
-🌨) S="" ;;
-*) S=$WEATHER ;;
-esac
+icons = { '☀️': '', # replace ugly icons
+          '⛅️': '',
+          '🌦': '',
+          '🌧': '',
+          '🌩': '',
+          '⛈': '',
+          '🌫': '',
+          '🌨': ''}
 
-echo $LOC: $S $TEMP
-echo $S $TEMP
+s = icons[s] if s in icons else s
+
+print(l+': '+s+t)
+print(l+': '+s+t)
