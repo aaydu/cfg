@@ -1,0 +1,14 @@
+scroll_left h
+scroll_right l
+scroll_up k
+scroll_down j
+
+next_img C-j
+prev_img C-k
+
+zoom_in plus
+zoom_out minus
+zoom_fit equal
+
+toggle_fullscreen f
+close q

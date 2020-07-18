@@ -40,6 +40,7 @@ bindsym $mod+9 workspace 9b, workspace 9
 bindsym $mod+n workspace  Spotify
 bindsym $mod+m workspace  Mail
 bindsym $mod+c workspace  WhatsApp
+bindsym $mod+BackSpace workspace ...
 
 # Which monitor to output workspace on
 workspace 1 output DVI-I-1
@@ -71,6 +72,7 @@ bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+BackSpace move container to workspace ...
 
 # Resizing container
 bindsym $mod+Ctrl+h resize shrink width 20 px
