@@ -8,14 +8,13 @@ call vundle#begin()
 
     Plugin 'VundleVim/Vundle.vim'
     Plugin 'crusoexia/vim-monokai'
-    Plugin 'arcticicestudio/nord-vim'
     "Plugin 'wmvanvliet/jupyter-vim'
     Plugin 'itchyny/lightline.vim'
     Plugin 'mbbill/undotree'
     Plugin 'Valloric/YouCompleteMe'
     let g:ycm_autoclose_preview_window_after_completion=1
 
-call vundle#end() 
+call vundle#end()
 filetype plugin indent on
 
 "#############################################
@@ -61,9 +60,6 @@ set undodir=~/.vim/undodir
 inoremap <Leader> <Esc>
 vnoremap <Leader> <Esc>
 cnoremap <Leader> <CR>
-
-" Write ; by triple tap (change this)
-"nnoremap <Leader><Leader> a;
 
 " Unmap useless, annoying stuff
 nnoremap Q <Nop>
