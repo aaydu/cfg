@@ -1,6 +1,5 @@
 set selection-clipboard clipboard
 set scroll-step 150
-set smooth-scroll true
 
 map <C-k> navigate previous
 map <C-j> navigate next
