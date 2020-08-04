@@ -33,7 +33,7 @@ set relativenumber
 set cursorline
 "set cursorcolumn
 set laststatus=2
-set foldenable
+"set foldenable
 set foldmethod=indent
 set foldlevel=99
 set clipboard=unnamedplus
@@ -54,16 +54,18 @@ set undofile
 set undodir=~/.vim/undodir
 
 " Set ; as leader
-:let mapleader = ";"
+:let mapleader = " "
 
 " Use leader to get into normal mode
-inoremap <Leader> <Esc>
-vnoremap <Leader> <Esc>
-cnoremap <Leader> <CR>
+inoremap ; <Esc>
+vnoremap ; <Esc>
+cnoremap ; <CR>
 
 " Unmap useless, annoying stuff
 nnoremap Q <Nop>
 nnoremap K <Nop>
+inoremap <c-p> <Nop>
+inoremap <c-h> <Nop>
 
 " More convenient saving/closing
 nnoremap <Leader>w :w<CR>
@@ -110,7 +112,7 @@ nnoremap z <c-r>
 nnoremap <leader>U :UndotreeToggle<CR>
 
 " Remap fold
-nnoremap <Space> za
+"nnoremap <Space> za
 
 " Remap search/replace
 nnoremap <Leader>r :%s/<C-R><C-W>//g<left><left>
