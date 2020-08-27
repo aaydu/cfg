@@ -59,7 +59,7 @@ set undodir=~/.vim/undodir
 " Use leader to get into normal mode
 inoremap ; <Esc>
 vnoremap ; <Esc>
-cnoremap ; <CR>
+"cnoremap ; <CR>
 
 " Unmap useless, annoying stuff
 nnoremap Q <Nop>
@@ -111,10 +111,7 @@ nnoremap z <c-r>
 " Open undo-tree plugin
 nnoremap <leader>U :UndotreeToggle<CR>
 
-" Remap fold
-"nnoremap <Space> za
-
-" Remap search/replace
+" Search/replace
 nnoremap <Leader>r :%s/<C-R><C-W>//g<left><left>
 
 " Don't leave normal mode when using o/O
@@ -140,6 +137,7 @@ vnoremap ' c''<Esc><left>pb
 vnoremap ( c()<Esc><left>pb
 vnoremap [ c[]<Esc><left>pb
 vnoremap { c{}<Esc><left>pb
+vnoremap < c<><Esc><left>pb
 
 " Pane movement/control
 nnoremap <Leader>h <C-w>h

@@ -109,7 +109,7 @@ client.background       #ffffff
 new_window pixel 0
 # Gaps
 default_border pixel 2
-gaps inner 0
+gaps inner 4
 smart_gaps on
 #smart_borders on
 
@@ -159,7 +159,7 @@ exec --no-startup-id flameshot
 #exec --no-startup-id spotify
 
 # Configure screen
-exec_always "feh --bg-scale ~/Pictures/shinjuku.jpg" # Wallpaper
+exec_always "feh --bg-scale ~/pics/shinjuku.jpg" # Wallpaper
 exec --no-startup-id redshift -O 5000k
 exec --no-startup-id xrandr -s 1920x1080 -r 120
 exec_always xrandr --output DVI-D-1 --mode 1280x1024 --right-of DVI-I-1
