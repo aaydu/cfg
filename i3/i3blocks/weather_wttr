@@ -3,10 +3,10 @@ import requests as R
 
 l = 'Aachen' # location
 
-t = R.get('http://wttr.in/{loc}?format=%t').text # temperature
-s = R.get('http://wttr.in/{loc}?format=%c').text # weather symbol
+t = R.get(f'http://wttr.in/{l}?format=%t').text # temperature
+s = R.get(f'http://wttr.in/{l}?format=%c').text # weather symbol
 
-if len(t) > 10 | len(s) > 10: # probably error response
+if len(t) > 10 or len(s) > 10: # probably error response
     print(l+ ': ?'); exit(0)
 
 icons = { '☀️': '', # replace ugly icons
