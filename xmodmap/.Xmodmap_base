@@ -1,8 +1,8 @@
 ! vim arrow keys
-keycode 43 = h H Left Left
-keycode 44 = j J Down Down
-keycode 45 = k K Up Up
-keycode 46 = l L Right Right
+ keycode 43 = h H Left Left
+ keycode 44 = j J Down Down
+ keycode 45 = k K Up Up
+ keycode 46 = l L Right Right
 
 ! media keys
 !keycode 58 = m M XF86AudioMute XF86AudioMute
@@ -30,3 +30,4 @@ keycode 20 = minus underscore F11 F11
 keycode 21 = equal plus F12 F12
 
 keycode 108 = Mode_switch
+keycode 134 = Mode_switch

@@ -137,7 +137,6 @@ vnoremap ' c''<Esc><left>pb
 vnoremap ( c()<Esc><left>pb
 vnoremap [ c[]<Esc><left>pb
 vnoremap { c{}<Esc><left>pb
-vnoremap < c<><Esc><left>pb
 
 " Pane movement/control
 nnoremap <Leader>h <C-w>h
