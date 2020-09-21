@@ -28,6 +28,7 @@ alias dud='sudo du -h -d1'
 alias qt='qutebrowser'
 alias lg='lazygit'
 alias timer='~/.scripts/./timer'
+alias copy='xclip -selection clipboard -i'
 
 bind 'set completion-ignore-case On'
 
@@ -37,9 +38,9 @@ export QT_IM_MODULE=fcitx
 
 set -o vi
 
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+#eval "$(pyenv init -)"
+#eval "$(pyenv virtualenv-init -)"
+#export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
-export PYTHONPATH=${PYTHONPATH}:/home/aa/MA/test/ab3dmot
-export PYTHONPATH=${PYTHONPATH}:/home/aa/MA/test/Xinshuo_PyToolbox
+export PYTHONPATH=${PYTHONPATH}:/home/aa/thesis/dump/test/ab3dmot
+export PYTHONPATH=${PYTHONPATH}:/home/aa/thesis/dump/test/Xinshuo_PyToolbox
