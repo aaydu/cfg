@@ -57,8 +57,8 @@ set undodir=~/.vim/undodir
 :let mapleader = " "
 
 " Use leader to get into normal mode
-inoremap ; <Esc>
-vnoremap ; <Esc>
+inoremap <c-space> <Esc>
+vnoremap <c-space> <Esc>
 "cnoremap ; <CR>
 
 " Unmap useless, annoying stuff
@@ -100,10 +100,10 @@ noremap <Leader>X "_X
 nnoremap Y y$
 
 " Remap up/down scroll
-nnoremap <c-k> <c-b>
-nnoremap <c-j> <c-f>
-vnoremap <c-k> <c-b>
-vnoremap <c-j> <c-f>
+" nnoremap <c-k> <c-b>
+" nnoremap <c-j> <c-f>
+" vnoremap <c-k> <c-b>
+" vnoremap <c-j> <c-f>
 
 " Remap redo
 nnoremap z <c-r>

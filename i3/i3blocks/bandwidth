@@ -9,8 +9,8 @@ iface="${BLOCK_INSTANCE}"
 iface="${IFACE:-$iface}"
 dt="${DT:-3}"
 unit="${UNIT:-Mb}"
-LABEL_UP="${LABEL_UP:- }" # down arrow up arrow
-LABEL_DOWN="${LABEL_DOWN:- }" # down arrow up arrow
+LABEL_UP="${LABEL_UP:- }" # up arrow
+LABEL_DOWN="${LABEL_DOWN:- }" # down arrow
 printf_command="${PRINTF_COMMAND:-"printf \"${LABEL_DOWN}%-5.1f${LABEL_UP}%-5.1f%s/s\\n\", rx, wx, unit;"}"
 
 function default_interface {
