@@ -13,6 +13,7 @@ call vundle#begin()
     Plugin 'mbbill/undotree'
     Plugin 'Valloric/YouCompleteMe'
     let g:ycm_autoclose_preview_window_after_completion=1
+    let g:ycm_disable_signature_help=1
 
 call vundle#end()
 filetype plugin indent on
@@ -58,8 +59,7 @@ set undodir=~/.vim/undodir
 
 " Use leader to get into normal mode
 inoremap <c-space> <Esc>
-vnoremap <c-space> <Esc>
-"cnoremap ; <CR>
+vnoremap <space> <Esc>
 
 " Unmap useless, annoying stuff
 nnoremap Q <Nop>
@@ -67,7 +67,7 @@ nnoremap K <Nop>
 inoremap <c-p> <Nop>
 inoremap <c-h> <Nop>
 
-" More convenient saving/closing
+" More convenient saving/closing (ZZ/ZQ too dangerous ~,~)
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>Q :q!<CR>
@@ -99,14 +99,8 @@ noremap <Leader>X "_X
 " Make Y consistent with D and C
 nnoremap Y y$
 
-" Remap up/down scroll
-" nnoremap <c-k> <c-b>
-" nnoremap <c-j> <c-f>
-" vnoremap <c-k> <c-b>
-" vnoremap <c-j> <c-f>
-
 " Remap redo
-nnoremap z <c-r>
+"nnoremap z <c-r>
 
 " Open undo-tree plugin
 nnoremap <leader>U :UndotreeToggle<CR>

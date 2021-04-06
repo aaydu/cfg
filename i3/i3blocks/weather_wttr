@@ -9,16 +9,16 @@ s = R.get(f'http://wttr.in/{l}?format=%c').text # weather symbol
 if len(t) > 10 or len(s) > 10: # probably error response
     print(l+ ': ?'); exit(0)
 
-icons = { '☀️': '', # replace ugly icons
-          '⛅️': '',
-          '🌦': '',
-          '🌧': '',
-          '🌩': '',
-          '⛈': '',
-          '🌫': '',
-          '🌨': ''}
-
-s = icons[s] if s in icons else s
+#icons = { '☀️': '', # replace ugly icons
+#          '⛅️': '',
+#          '🌦': '',
+#          '🌧': '',
+#          '🌩': '',
+#          '⛈': '',
+#          '🌫': '',
+#          '🌨': ''}
+#
+#s = icons[s] if s in icons else s
 
 print(l+': '+s+t)
 print(l+': '+s+t)

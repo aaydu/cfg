@@ -5,6 +5,7 @@ set keymap vi-command
 # because sometimes I don't release CTRL fast enough
 "\C-k":history-search-backward
 "\C-j":history-search-forward
+"\C-d": ""
 
 set editing-mode vi
 "\C- ":vi-movement-mode
