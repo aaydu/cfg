@@ -6,10 +6,10 @@ muted=$(current_volume_muted)
 if (("$src" == 0))
 then
     #icon=''
-    icon='🎧'
+    icon='🔈'
 elif (("$src" == 1))
 then
-    icon='🔈'
+    icon='🎧'
 else
     icon=' '
 fi

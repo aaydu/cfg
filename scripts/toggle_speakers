@@ -1,12 +1,24 @@
 #!/bin/bash 
 current_source=$(current_volume_source)
-new_source=$(( ($current_source+1) % 2 ))
+#new_source=$(( ($current_source+1) % 3 ))
 
 #if [ "$current_source" == "0" ]; then
-#    new_source=4
+#    new_source='alsa_output.pci-0000_05_00.0.analog-surround-51'
+#elif [ "$current_source" == "1" ]; then
+#    if [ $(pactl list short sinks | wc -l) == "3" ]; then
+#        new_source='bluez_sink.38_F3_2E_8C_E5_D3.a2dp_sink'
+#    else
+#        new_source='alsa_output.usb-Sennheiser_Communications_Sennheiser_USB_Headset-00.iec958-stereo'
+#    fi
 #else
-#    new_source=0
+#    new_source='alsa_output.usb-Sennheiser_Communications_Sennheiser_USB_Headset-00.iec958-stereo'
 #fi
+
+if [ "$current_source" == "1" ]; then
+    new_source='alsa_output.pci-0000_01_00.1.hdmi-stereo-extra2'
+else
+    new_source='alsa_output.usb-Sennheiser_Communications_Sennheiser_USB_Headset-00.iec958-stereo'
+fi
 
 pacmd set-default-sink $new_source
 pacmd list-sink-inputs | grep index | while read line

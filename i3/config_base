@@ -1,5 +1,5 @@
 set $mod Mod4
-font pango: System San Francisco Display Bold 8
+font pango: System San Francisco Display Bold 7
 floating_modifier $mod
 mouse_warping none
 
@@ -28,39 +28,39 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # Switch to workspace
-bindsym $mod+1 workspace 1b, workspace 1
-bindsym $mod+2 workspace 2b, workspace 2
-bindsym $mod+3 workspace 3b, workspace 3
-bindsym $mod+4 workspace 4b, workspace 4
-bindsym $mod+5 workspace 5b, workspace 5
-bindsym $mod+6 workspace 6b, workspace 6
-bindsym $mod+7 workspace 7b, workspace 7
-bindsym $mod+8 workspace 8b, workspace 8
-bindsym $mod+9 workspace 9b, workspace 9
+bindsym $mod+1 workspace 1#b, workspace 1
+bindsym $mod+2 workspace 2#b, workspace 2
+bindsym $mod+3 workspace 3#b, workspace 3
+bindsym $mod+4 workspace 4#b, workspace 4
+bindsym $mod+5 workspace 5#b, workspace 5
+bindsym $mod+6 workspace 6#b, workspace 6
+bindsym $mod+7 workspace 7#b, workspace 7
+bindsym $mod+8 workspace 8#b, workspace 8
+bindsym $mod+9 workspace 9#b, workspace 9
 bindsym $mod+n workspace  Spotify
 bindsym $mod+m workspace  Mail
 bindsym $mod+c workspace  WhatsApp
 bindsym $mod+BackSpace workspace ...
 
 # Which monitor to output workspace on
-workspace 1 output DVI-I-1
-workspace 2 output DVI-I-1
-workspace 3 output DVI-I-1
-workspace 4 output DVI-I-1
-workspace 5 output DVI-I-1
-workspace 6 output DVI-I-1
-workspace 7 output DVI-I-1
-workspace 8 output DVI-I-1
-workspace 9 output DVI-I-1
-workspace 1b output DVI-D-0
-workspace 2b output DVI-D-0
-workspace 3b output DVI-D-0
-workspace 4b output DVI-D-0
-workspace 5b output DVI-D-0
-workspace 6b output DVI-D-0
-workspace 7b output DVI-D-0
-workspace 8b output DVI-D-0
-workspace 9b output DVI-D-0
+# workspace 1 output DVI-I-1
+# workspace 2 output DVI-I-1
+# workspace 3 output DVI-I-1
+# workspace 4 output DVI-I-1
+# workspace 5 output DVI-I-1
+# workspace 6 output DVI-I-1
+# workspace 7 output DVI-I-1
+# workspace 8 output DVI-I-1
+# workspace 9 output DVI-I-1
+# workspace 1b output DVI-D-0
+# workspace 2b output DVI-D-0
+# workspace 3b output DVI-D-0
+# workspace 4b output DVI-D-0
+# workspace 5b output DVI-D-0
+# workspace 6b output DVI-D-0
+# workspace 7b output DVI-D-0
+# workspace 8b output DVI-D-0
+# workspace 9b output DVI-D-0
 
 # Move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
@@ -129,7 +129,7 @@ mode "$mode_system" {
 }
 
 # Launching hotkeys
-bindsym $mod+Return exec st
+bindsym $mod+Return exec st #-e scroll
 bindsym $mod+Shift+Return exec st -e ~/.scripts/./cddt
 bindsym $mod+d exec dmenu_run -b
 bindsym $mod+P exec flameshot gui
@@ -144,10 +144,14 @@ for_window [class="Thunderbird"] move to workspace  Mail
 for_window [class="qutebrowser"] move to workspace  WhatsApp
 
 # Audio controls
-bindsym Mode_switch+period exec --no-startup-id "pactl set-sink-volume $(current_volume_source) +5% && pkill -RTMIN+2 i3blocks"
-bindsym Mode_switch+comma exec --no-startup-id "pactl set-sink-volume $(current_volume_source) -5% && pkill -RTMIN+2 i3blocks"
-bindsym Mode_switch+m exec --no-startup-id "pactl set-sink-mute $(current_volume_source) toggle && pkill -RTMIN+2 i3blocks"
-bindsym Mode_switch+n exec --no-startup-id "toggle_speakers && pkill -RTMIN+2 i3blocks"
+#bindsym Mode_switch+period exec --no-startup-id "pactl set-sink-volume $(current_volume_source) +5% && pkill -RTMIN+2 i3blocks"
+#bindsym Mode_switch+comma exec --no-startup-id "pactl set-sink-volume $(current_volume_source) -5% && pkill -RTMIN+2 i3blocks"
+#bindsym Mode_switch+m exec --no-startup-id "pactl set-sink-mute $(current_volume_source) toggle && pkill -RTMIN+2 i3blocks"
+#bindsym Mode_switch+n exec --no-startup-id "toggle_speakers && pkill -RTMIN+2 i3blocks"
+bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-volume $(current_volume_source) +5% && pkill -RTMIN+2 i3blocks"
+bindsym XF86AudioLowerVolume exec --no-startup-id "pactl set-sink-volume $(current_volume_source) -5% && pkill -RTMIN+2 i3blocks"
+#bindsym Mode_switch+m exec --no-startup-id "pactl set-sink-mute $(current_volume_source) toggle && pkill -RTMIN+2 i3blocks"
+bindsym XF86AudioMute exec --no-startup-id "toggle_speakers && pkill -RTMIN+2 i3blocks"
 
 # Auto-start some apps
 exec --no-startup-id thunderbird
@@ -159,10 +163,13 @@ exec --no-startup-id flameshot
 #exec --no-startup-id spotify
 
 # Configure screen
-exec_always "feh --bg-scale ~/pics/shinjuku.jpg" # Wallpaper
-exec --no-startup-id redshift -O 5000k
-exec --no-startup-id xrandr -s 1920x1080 -r 120
-exec_always xrandr --output DVI-D-1 --mode 1280x1024 --right-of DVI-I-1
+#exec_always "feh --bg-scale ~/pics/shinjuku.jpg" # Wallpaper
+exec_always "feh --bg-fill pics/chill_poke.jpg --bg-scale pics/mountains_3.jpg"
+
+#exec_always "feh --bg-scale ~/pics/temp_bg.png" # Wallpaper
+#exec --no-startup-id redshift -O 5000k
+#exec --no-startup-id xrandr -s 1920x1080 -r 120
+#exec_always xrandr --output DVI-D-1 --mode 1280x1024 --right-of DVI-I-1
 #exec --no-startup-id xsetroot -solid "#252525"
 #exec --no-startup-id "compton --backend xrender"
 
