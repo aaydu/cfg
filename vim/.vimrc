@@ -58,7 +58,7 @@ set undodir=~/.vim/undodir
 :let mapleader = " "
 
 " Use leader to get into normal mode
-inoremap <c-space> <Esc>
+inoremap <c-@> <Esc>
 vnoremap <space> <Esc>
 
 " Unmap useless, annoying stuff

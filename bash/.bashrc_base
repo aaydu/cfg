@@ -37,10 +37,3 @@ export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 
 set -o vi
-
-#eval "$(pyenv init -)"
-#eval "$(pyenv virtualenv-init -)"
-#export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-
-export PYTHONPATH=${PYTHONPATH}:/home/aa/thesis/dump/test/ab3dmot
-export PYTHONPATH=${PYTHONPATH}:/home/aa/thesis/dump/test/Xinshuo_PyToolbox
