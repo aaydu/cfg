@@ -1,6 +1,7 @@
 "#############################################
 "#                  Plugins                  #
 "#############################################
+source /opt/homebrew/Cellar/fzf/0.55.0/plugin/fzf.vim
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -8,12 +9,26 @@ call vundle#begin()
 
     Plugin 'VundleVim/Vundle.vim'
     Plugin 'crusoexia/vim-monokai'
-    "Plugin 'wmvanvliet/jupyter-vim'
     Plugin 'itchyny/lightline.vim'
     Plugin 'mbbill/undotree'
+    "Plugin 'puremourning/vimspector'
+
+    "Plugin 'xavierd/clang_complete'
+    "let g:clang_library_path='/opt/homebrew/Cellar/llvm/14.0.6/lib'
+    "let g:clang_library_path='/Library/Developer/CommandLineTools/usr/lib/'
+    "let g:clang_close_preview=1
+    "let g:clang_auto_select=0
+    "set completeopt=menu,longest
+
     Plugin 'Valloric/YouCompleteMe'
     let g:ycm_autoclose_preview_window_after_completion=1
     let g:ycm_disable_signature_help=1
+    let g:ycm_key_invoke_completion=''
+
+    Plugin 'junegunn/fzf.vim'
+    let g:fzf_layout = {'down': '40%'}
+    "let g:fzf_action = {'ctrl-at': 'exit'}
+
 
 call vundle#end()
 filetype plugin indent on
@@ -26,18 +41,18 @@ syntax on
 colorscheme monokai
 set background=dark
 hi normal ctermbg=NONE guibg=NONE
-autocmd VimLeave * call system("xclip -selection clipboard -i", getreg('+'))
-autocmd VimEnter * silent !echo -ne "\e[2 q"
+"autocmd VimLeave * call system("xclip -selection clipboard -i", getreg('+'))
+"let &t_SI = "\e[5 q" " bar cursor in insert mode
+"let &t_EI = "\e[1 q" " box cursor in normal mode
+"let &t_SR = "\e[1 q" " box cursor in replace mode
 
 set number
 set relativenumber
 set cursorline
-"set cursorcolumn
 set laststatus=2
-"set foldenable
 set foldmethod=indent
 set foldlevel=99
-set clipboard=unnamedplus
+set clipboard=unnamed
 set go+=a
 set list listchars=tab:\ \ ,trail:-
 set nohlsearch
@@ -59,15 +74,16 @@ set undodir=~/.vim/undodir
 
 " Use leader to get into normal mode
 inoremap <c-@> <Esc>
+vnoremap <c-@> <Esc>
 vnoremap <space> <Esc>
 
-" Unmap useless, annoying stuff
+" Unmap useless stuff
 nnoremap Q <Nop>
 nnoremap K <Nop>
 inoremap <c-p> <Nop>
 inoremap <c-h> <Nop>
 
-" More convenient saving/closing (ZZ/ZQ too dangerous ~,~)
+" More convenient saving/closing
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>Q :q!<CR>
@@ -99,9 +115,6 @@ noremap <Leader>X "_X
 " Make Y consistent with D and C
 nnoremap Y y$
 
-" Remap redo
-"nnoremap z <c-r>
-
 " Open undo-tree plugin
 nnoremap <leader>U :UndotreeToggle<CR>
 
@@ -123,7 +136,6 @@ vnoremap > >gv
 
 " Commenting out in visual block mode
 vnoremap # :s/^/#/<Esc><Esc>
-"vnoremap ' :s/#/<Esc><Esc>
 
 " Smart insertion of 'surrounding' chars
 vnoremap " c""<Esc><left>pb
@@ -141,10 +153,16 @@ nnoremap <Leader>- <C-w>-
 nnoremap <Leader>+ <C-w>+
 nnoremap <Leader>= <C-w>=
 
-" Execute python in connected Jupyter-Console
-autocmd FileType python nnoremap <Leader>e :JupyterSendCount<CR>
-autocmd FileType python nnoremap <Leader>E :JupyterRunFile<CR>
-autocmd FileType python vnoremap <Leader>e :JupyterSendRange<CR>
+" Python debugger
+nnoremap <Leader>gl :call vimspector#Launch()<CR>
+nnoremap <Leader>gq :call vimspector#Reset()<CR>
+nnoremap <Leader>gc :call vimspector#Continue()<CR>
+nnoremap <Leader>gb :call vimspector#ToggleBreakpoint()<CR>
+nnoremap <Leader>gso :call vimspector#StepOver()<CR>
+nnoremap <Leader>gsi :call vimspector#StepOver()<CR>
 
-autocmd FileType tex,latex nnoremap <Leader>w :w<CR> :!texi2pdf %<CR><CR>
-"autocmd FileType markdown nnoremap <Leader>w :w<CR> :!pandoc -t html --css='style.css' -o README.html %<CR><CR>
+" fzf
+nnoremap <Leader>ff :GFiles<CR>
+command! -bang -nargs=* RgGit call fzf#vim#grep('rg "" $(git_root=$(git rev-parse --show-toplevel); python3 -c "import os; print(os.path.relpath(\"$git_root\", \"$(pwd)\"))") --vimgrep --line-number --smart-case --follow --color "always"', fzf#vim#with_preview())
+nnoremap <Leader>fv :RgGit<cr>
+
