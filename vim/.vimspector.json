@@ -1,0 +1,13 @@
+{
+    "configurations":{
+        "Python Attach":{
+            "default":true,
+            "adapter":"debugpy",
+            "configuration":{
+                "type":"python",
+                "request":"attach",
+                "processId": "${PickProcess()}"
+            }
+        }
+    }
+}
