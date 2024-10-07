@@ -13,7 +13,7 @@ yabai -m config active_window_opacity        1.0
 yabai -m config normal_window_opacity        0.90
 yabai -m config window_border                on
 yabai -m config window_border_width          5
-yabai -m config active_window_border_color   0xff775759
+yabai -m config active_window_border_color   0xff179639
 yabai -m config normal_window_border_color   0xff555555
 yabai -m config insert_feedback_color        0xffd75f5f
 yabai -m config split_ratio                  0.50
@@ -29,4 +29,4 @@ yabai -m config top_padding                  0
 yabai -m config bottom_padding               0
 yabai -m config left_padding                 0
 yabai -m config right_padding                0
-yabai -m config window_gap                   02
+yabai -m config window_gap                   0

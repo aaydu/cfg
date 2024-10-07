@@ -14,8 +14,8 @@ export EDITOR=vim
 alias vi='vim'
 alias ..='cd ..'
 alias rm='rm -i'
-alias ls='ls --color=auto'
-alias ll='ls -l -h --color=auto'
+alias ls='ls --color'
+alias ll='ls -l -h --color'
 alias z='zathura --fork'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
@@ -37,3 +37,5 @@ export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 
 set -o vi
+
+alias run_yabai='sudo yabai --load-sa'
