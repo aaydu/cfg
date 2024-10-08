@@ -27,7 +27,6 @@ call vundle#begin()
 
     Plugin 'junegunn/fzf.vim'
     let g:fzf_layout = {'down': '40%'}
-    "let g:fzf_action = {'ctrl-at': 'exit'}
 
 
 call vundle#end()
@@ -66,6 +65,7 @@ set ttymouse=sgr
 set noswapfile
 set scrolloff=10
 set tabstop=4 shiftwidth=4 expandtab
+set nofixendofline
 set undofile
 set undodir=~/.vim/undodir
 
@@ -153,6 +153,12 @@ nnoremap <Leader>- <C-w>-
 nnoremap <Leader>+ <C-w>+
 nnoremap <Leader>= <C-w>=
 
+" Remove whitespace
+nnoremap <Leader><BS> :%s/\s\+$//e<CR>
+
+" Set paste
+nnoremap <Leader>p :set paste!<CR>
+
 " Python debugger
 nnoremap <Leader>gl :call vimspector#Launch()<CR>
 nnoremap <Leader>gq :call vimspector#Reset()<CR>
@@ -163,6 +169,7 @@ nnoremap <Leader>gsi :call vimspector#StepOver()<CR>
 
 " fzf
 nnoremap <Leader>ff :GFiles<CR>
-command! -bang -nargs=* RgGit call fzf#vim#grep('rg "" $(git_root=$(git rev-parse --show-toplevel); python3 -c "import os; print(os.path.relpath(\"$git_root\", \"$(pwd)\"))") --vimgrep --line-number --smart-case --follow --color "always"', fzf#vim#with_preview())
+command! -nargs=* RgGit call fzf#vim#grep('rg "<args>" $(git_root=$(git rev-parse --show-toplevel); python3 -c "import os; print(os.path.relpath(\"$git_root\", \"$(pwd)\"))") --line-number --smart-case --follow --color "always"', fzf#vim#with_preview())
 nnoremap <Leader>fv :RgGit<cr>
+nnoremap <Leader>fV :RgGit <C-R>=expand('<cword>')<CR><CR>
 
