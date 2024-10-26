@@ -1,7 +1,6 @@
 "#############################################
 "#                  Plugins                  #
 "#############################################
-source /opt/homebrew/Cellar/fzf/0.55.0/plugin/fzf.vim
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -25,6 +24,7 @@ call vundle#begin()
     let g:ycm_disable_signature_help=1
     let g:ycm_key_invoke_completion=''
 
+    Plugin 'junegunn/fzf'
     Plugin 'junegunn/fzf.vim'
     let g:fzf_layout = {'down': '40%'}
 
@@ -40,7 +40,7 @@ syntax on
 colorscheme monokai
 set background=dark
 hi normal ctermbg=NONE guibg=NONE
-"autocmd VimLeave * call system("xclip -selection clipboard -i", getreg('+'))
+autocmd VimLeave * call system("xclip -selection clipboard -i", getreg('+'))
 "let &t_SI = "\e[5 q" " bar cursor in insert mode
 "let &t_EI = "\e[1 q" " box cursor in normal mode
 "let &t_SR = "\e[1 q" " box cursor in replace mode
@@ -51,7 +51,7 @@ set cursorline
 set laststatus=2
 set foldmethod=indent
 set foldlevel=99
-set clipboard=unnamed
+set clipboard=unnamedplus
 set go+=a
 set list listchars=tab:\ \ ,trail:-
 set nohlsearch
