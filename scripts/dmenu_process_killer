@@ -1,0 +1,10 @@
+#!/usr/bin/sh
+
+# List processes with PID and name
+process=$(ps -e -o pid,comm --sort=-%mem | dmenu -i -l 20 -p "Kill Process:" -fn 'SF Pro Display-11:bold')
+
+# Extract the PID
+pid=$(echo $process | awk '{print $1}')
+
+# Kill the selected process
+[ -n "$pid" ] && kill -9 $pid
