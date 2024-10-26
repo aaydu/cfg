@@ -23,5 +23,5 @@ keycode 38 = a A adiaeresis Adiaeresis
 keycode 39 = s S ssharp ssharp
 
 ! Make right ctrl -> mode switch
-keycode 105 = Mode_switch
+keycode 108 = Mode_switch
 
