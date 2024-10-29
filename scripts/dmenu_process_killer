@@ -1,10 +1,5 @@
-#!/usr/bin/sh
-
-# List processes with PID and name
-process=$(ps -e -o pid,comm --sort=-%mem | dmenu -i -l 20 -p "Kill Process:" -fn 'SF Pro Display-11:bold')
-
-# Extract the PID
+#!/usr/bin/env sh
+process=$(ps -e -o pid= -o comm= -o args= --sort=comm | awk '{printf "%-7s %-17s %s\n", $1, $2, substr($0, index($0,$3))}' | dmenu -i -l 20 -p "Kill Process:" -fn 'Ubuntu Mono-11:bold' -nb '#1C1C1C' -sb '#A00000' -h 23)
 pid=$(echo $process | awk '{print $1}')
-
-# Kill the selected process
 [ -n "$pid" ] && kill -9 $pid
+

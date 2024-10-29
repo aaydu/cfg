@@ -1,0 +1,23 @@
+#!/home/aa/.envs/base/bin/python
+import requests
+
+l = 'New York' # location
+
+t = requests.get(f'http://wttr.in/{l}?format=%t').text.replace('+','') # temperature
+s = requests.get(f'http://wttr.in/{l}?format=%c').text.replace(' ', '') # weather symbol
+
+if len(t) > 10 or len(s) > 10: # probably error response
+    t, s = '', ' '
+
+icons = {'☀️': ' ', # replace ugly icons
+         '⛅️': ' ',
+         '🌦': ' ',
+         '🌧': ' ',
+         '🌩': ' ',
+         '⛈': ' ',
+         '🌫': ' ',
+         '🌨': ' '}
+s = icons[s] if s in icons else s
+
+print(f'{l}:  {s}{t}')
+print(f'{l}:  {s}{t}')

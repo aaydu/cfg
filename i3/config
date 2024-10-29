@@ -65,7 +65,7 @@ bar {
     status_command i3blocks -c /home/aa/.config/i3/i3blocks.conf
 	position bottom
 	colors {
-		background #1c1c1c
+		background #1C1C1C
 		statusline #FFFFFF
                            #border backgr. text
         focused_workspace  #555555 #555555 #FFFFFF
@@ -94,7 +94,7 @@ smart_gaps on
 bindsym $mod+Escape mode "$mode_system"
 set $mode_system [l]ock, [e]xit, [s]uspend, [h]ibernate, [r]eboot, [Shift+s]hutdown
 mode "$mode_system" {
-    bindsym l exec --no-startup-id blurlock, mode "default"
+    bindsym l exec --no-startup-id ~/.cfg/scripts/blurlock, mode "default"
     bindsym s exec --no-startup-id systemctl suspend, mode "default"
     bindsym e exec --no-startup-id i3-msg exit, mode "default"
     bindsym h exec --no-startup-id systemctl hibernate, mode "default"
@@ -114,7 +114,7 @@ bindsym $mod+F3 exec "firefox --private-window"
 # Launching hotkeys
 bindsym $mod+Return exec st
 bindsym $mod+Shift+Return exec st -e ~/.cfg/scripts/./cddt
-bindsym $mod+d exec dmenu_run -b -fn 'Consola-11:bold'
+bindsym $mod+d exec dmenu_run -b -fn 'Ubuntu Mono-11:bold' -nb '#1C1C1C' -sb '#A00000' -h 22
 bindsym $mod+p exec flameshot gui
 bindsym $mod+BackSpace exec ~/.cfg/scripts/dmenu_process_killer
 bindsym $mod+Ctrl+1 exec pcmanfm
@@ -142,7 +142,7 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # Auto-start some apps
-exec --no-startup-id xautolock -time 10 -locker i3lock
+exec --no-startup-id xautolock -time 10 -locker ~/.cfg/scripts/blurlock
 exec --no-startup-id dunst
 exec --no-startup-id nm-applet
 exec --no-startup-id blueberry-tray

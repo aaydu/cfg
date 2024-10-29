@@ -1,0 +1,9 @@
+#!/home/aa/.envs/base/bin/python
+from PIL import Image, ImageFilter
+import pyscreenshot, subprocess
+
+ss_path = '/tmp/i3lock_ss_blurred.png'
+ss = pyscreenshot.grab()
+ss_blurred = ss.filter(ImageFilter.GaussianBlur(radius=6))
+ss_blurred.save(ss_path)
+subprocess.run(['i3lock', '-i', ss_path])
