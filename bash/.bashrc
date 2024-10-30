@@ -1,6 +1,6 @@
 HISTCONTROL=ignoreboth
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=
+HISTFILESIZE=
 shopt -s histappend
 shopt -s checkwinsize
 
@@ -60,3 +60,5 @@ bind -m vi-command -x '"P": paste_from_clipboard 0'
 bind -m vi-command -x '"p": paste_from_clipboard 1'
 bind -m vi-command -x '"yy": yank_line_to_clipboard'
 bind -m vi-command -x '"dd": kill_line_to_clipboard'
+
+eval "$(fzf --bash)"

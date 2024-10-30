@@ -1,23 +1,26 @@
 #!/home/aa/.envs/base/bin/python
-import requests
+import os, requests, functools
 
-l = 'New York' # location
+location = os.environ.get('location', 'Honolulu') # location
+text = requests.get(f'http://wttr.in/{location}?format=%l:++%C%t+++%h').text.replace('+','')
 
-t = requests.get(f'http://wttr.in/{l}?format=%t').text.replace('+','') # temperature
-s = requests.get(f'http://wttr.in/{l}?format=%c').text.replace(' ', '') # weather symbol
+if len(text) > 40: # probably error response
+    exit
 
-if len(t) > 10 or len(s) > 10: # probably error response
-    t, s = '', ' '
+icons = {'Sunny':        ' ',
+         'Overcast':     ' ',
+         'Light rain':   ' ',
+         'Drizzle':      ' ',
+         'Rain':         ' ',
+         'Shower':       ' ',
+         'todo':         ' ',
+         'Thunderstorm': ' ',
+         'Mist':         ' ',
+         'Fog':          ' ',
+         'Haze':         ' ',
+         'Snow':         ' '}
 
-icons = {'☀️': ' ', # replace ugly icons
-         '⛅️': ' ',
-         '🌦': ' ',
-         '🌧': ' ',
-         '🌩': ' ',
-         '⛈': ' ',
-         '🌫': ' ',
-         '🌨': ' '}
-s = icons[s] if s in icons else s
+text = functools.reduce(lambda t, kv: t.replace(*kv), icons.items(), text)
 
-print(f'{l}:  {s}{t}')
-print(f'{l}:  {s}{t}')
+print(text, flush=True)
+

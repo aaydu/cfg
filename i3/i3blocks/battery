@@ -30,7 +30,7 @@ elif state == "Full":
 elif state == "Unknown":
     icon = span(FA['unknown'])
 else:
-    icon = f'{span(FA["lightning"])} {span(FA["plug"])}'
+    icon = f'{span(FA["lightning"])}{span(FA["plug"])}'
 
 def color(percent):
     if percent < 10: return "#FF0000"

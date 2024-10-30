@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-process=$(ps -e -o pid= -o comm= -o args= --sort=comm | awk '{printf "%-7s %-17s %s\n", $1, $2, substr($0, index($0,$3))}' | dmenu -i -l 20 -p "Kill Process:" -fn 'Ubuntu Mono-11:bold' -nb '#1C1C1C' -sb '#A00000' -h 23)
+process=$(ps -e -o pid= -o comm= -o args= --sort=comm | awk '{printf "%-7s %-17s %s\n", $1, $2, substr($0, index($0,$3))}' | dmenu -i -l 20 -p "Kill Process:" -fn 'Ubuntu Mono-11:bold' -nb '#1C1C1C' -nf '#FFFFFF' -sb '#A00000' -sf '#FFFFFF' -h 22)
 pid=$(echo $process | awk '{print $1}')
 [ -n "$pid" ] && kill -9 $pid
 

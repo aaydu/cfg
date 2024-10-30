@@ -1,5 +1,4 @@
 set $mod Mod4
-#font pango: System San Francisco Display Bold 8, Font Awesome Bold 9
 font pango: Consola bold 9
 floating_modifier $mod
 mouse_warping none
@@ -114,7 +113,7 @@ bindsym $mod+F3 exec "firefox --private-window"
 # Launching hotkeys
 bindsym $mod+Return exec st
 bindsym $mod+Shift+Return exec st -e ~/.cfg/scripts/./cddt
-bindsym $mod+d exec dmenu_run -b -fn 'Ubuntu Mono-11:bold' -nb '#1C1C1C' -sb '#A00000' -h 22
+bindsym $mod+d exec dmenu_run -b -fn 'Ubuntu Mono-11:bold' -nb '#1C1C1C' -nf '#FFFFFF' -sb '#A00000' -sf '#FFFFFF' -h 22
 bindsym $mod+p exec flameshot gui
 bindsym $mod+BackSpace exec ~/.cfg/scripts/dmenu_process_killer
 bindsym $mod+Ctrl+1 exec pcmanfm
@@ -161,7 +160,7 @@ exec --no-startup-id redshift -O 5000k
 # Configure keyboard
 exec --no-startup-id "setxkbmap -layout us"
 #exec --no-startup-id fcitx -d # for jap. l kkut
-exec_always --no-startup-id "xmodmap /home/aa/.xmodmap"
+exec_always --no-startup-id xmodmap /home/aa/.Xmodmap
 exec_always --no-startup-id "xset r rate 240 30"
 #exec_always --no-startup-id "xkbset sticky -twokey -latchlock" # Sticky shift
 
