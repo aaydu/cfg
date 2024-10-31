@@ -91,11 +91,10 @@ gaps inner 5
 smart_gaps on
 
 bindsym $mod+Escape mode "$mode_system"
-set $mode_system [l]ock, [e]xit, [s]uspend, [h]ibernate, [r]eboot, [Shift+s]hutdown
+set $mode_system [l]ock, [s]uspend-then-hibernate, [h]ibernate, [r]eboot, [Shift+s]hutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id ~/.cfg/scripts/blurlock, mode "default"
-    bindsym s exec --no-startup-id systemctl suspend, mode "default"
-    bindsym e exec --no-startup-id i3-msg exit, mode "default"
+    bindsym s exec --no-startup-id systemctl suspend-then-hibernate, mode "default"
     bindsym h exec --no-startup-id systemctl hibernate, mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
     bindsym Shift+s exec --no-startup-id systemctl poweroff, mode "default"
@@ -141,25 +140,19 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # Auto-start some apps
-exec --no-startup-id xautolock -time 10 -locker ~/.cfg/scripts/blurlock
+exec --no-startup-id xautolock -detectsleep -time 10 -locker ~/.cfg/scripts/blurlock
+exec --no-startup-id xss-lock --transfer-sleep-lock -- ~/.cfg/scripts/blurlock
 exec --no-startup-id dunst
 exec --no-startup-id nm-applet
 exec --no-startup-id blueberry-tray
-#exec --no-startup-id xfce4-power-manager
-#exec --no-startup-id dropbox
-#exec --no-startup-id thunderbird
-#exec --no-startup-id qutebrowser web.whatsapp.com
-#exec --no-startup-id spotify
 
 # Configure screen
 exec --no-startup-id xsetroot -solid "#252525"
 exec --no-startup-id redshift -O 5000k
-#exec --no-startup-id "compton --backend xrender"
 #exec "feh --bg-scale ~/Pictures/shinjuku.jpg" # Wallpaper
 
 # Configure keyboard
 exec --no-startup-id "setxkbmap -layout us"
-#exec --no-startup-id fcitx -d # for jap. l kkut
 exec_always --no-startup-id xmodmap /home/aa/.Xmodmap
 exec_always --no-startup-id "xset r rate 240 30"
 #exec_always --no-startup-id "xkbset sticky -twokey -latchlock" # Sticky shift

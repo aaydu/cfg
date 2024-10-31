@@ -9,6 +9,7 @@ if len(text) > 40: # probably error response
 
 icons = {'Sunny':        ' ',
          'Overcast':     ' ',
+         'Partly cloudy':' ',
          'Light rain':   ' ',
          'Drizzle':      ' ',
          'Rain':         ' ',

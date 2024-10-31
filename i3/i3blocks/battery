@@ -2,45 +2,43 @@
 from subprocess import check_output
 import os, re
 
+color = os.environ.get('color', 'white')
+
 # Define font awesome icons
 def span(data):
     return f'<span color=\'{data["color"]}\'>{data["icon"]} </span>'
 FA = dict(unknown=  dict(icon='?', color='white'),
           lightning=dict(icon='', color='yellow'),
           plug=     dict(icon='', color='white'),
-          battery= [dict(icon='', color=os.environ['color']),
-                    dict(icon='', color=os.environ['color']),
-                    dict(icon='', color=os.environ['color']),
-                    dict(icon='', color=os.environ['color']),
-                    dict(icon='', color=os.environ['color'])])
+          battery= [dict(icon='', color=color),
+                    dict(icon='', color=color),
+                    dict(icon='', color=color),
+                    dict(icon='', color=color),
+                    dict(icon='', color=color)])
 
 info = check_output(['acpi'], universal_newlines=True).strip().split('\n')[0]
 if info:
-    pattern = re.compile(r'Battery \d+: (?P<state>\w+), (?P<percentage>\d+)%')
+    pattern = re.compile(r'Battery \d+: (?P<state>\w+(?: \w+)*), (?P<percentage>\d+)%')
     matches = list(pattern.finditer(info))[0]
     state = matches.group('state')
     percentage = int(matches.group('percentage'))
 else:
     state = 'Unknown'
 
-if state == "Discharging":
-    icon = span(FA['battery'][min(percentage // 25, 4)])
-elif state == "Full":
-    icon = span(FA['plug'])
-elif state == "Unknown":
-    icon = span(FA['unknown'])
-else:
-    icon = f'{span(FA["lightning"])}{span(FA["plug"])}'
+match state:
+    case "Discharging":
+        icon = span(FA['battery'][int(percentage-0.0001) // (100 // len(FA['battery']))])
+    case "Full":
+        icon = span(FA['plug'])
+    case "Unknown":
+        icon = span(FA['unknown'])
+    case _:
+        icon = f'{span(FA["lightning"])}{span(FA["plug"])}'
 
 def color(percent):
     if percent < 10: return "#FF0000"
     if percent < 20: return "#FF3300"
-    if percent < 30: return "#FF6600"
     if percent < 40: return "#FF9900"
-    if percent < 50: return "#FFCC00"
-    if percent < 60: return "#FFFF00"
-    if percent < 70: return "#FFFF33"
-    if percent < 80: return "#FFFF66"
     return "#FFFFFF"
 
 print(f'{icon} <span color=\'{color(percentage)}\'>{percentage}%</span>')
