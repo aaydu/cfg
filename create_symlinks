@@ -1,0 +1,32 @@
+#!/bin/bash
+
+repo_root=$(dirname "$(realpath "$0")")
+
+declare -A files=(
+    ["$repo_root/bash/.bashrc"]="$HOME/.bashrc"
+    ["$repo_root/bash/.inputrc"]="$HOME/.inputrc"
+    ["$repo_root/dunst/dunstrc"]="$HOME/.config/dunst/dunstrc"
+    ["$repo_root/feh/keys"]="$HOME/.config/feh/keys"
+    ["$repo_root/feh/themes"]="$HOME/.config/feh/themes"
+    ["$repo_root/i3/config"]="$HOME/.config/i3/config"
+    ["$repo_root/less/.lesskey"]="$HOME/.lesskey"
+    ["$repo_root/tmux/.tmux.conf"]="$HOME/.tmux.conf"
+    ["$repo_root/vim/.vimrc"]="$HOME/.vimrc"
+    ["$repo_root/xmodmap/.Xmodmap"]="$HOME/.Xmodmap"
+    ["$repo_root/zathura/zathurarc"]="$HOME/.config/zathura/zathurarc"
+)
+
+green='\033[0;32m'
+red='\033[0;31m'
+nc='\033[0m' # No color
+
+for src in "${!files[@]}"; do
+    dest=${files[$src]}
+    mkdir -p "$(dirname "$dest")"
+    if ln -sf "$src" "$dest"; then
+        echo -e "${green}Created: $dest -> $src${nc}"
+    else
+        echo -e "${red}Failed: $dest -> $src${nc}" >&2
+    fi
+done
+

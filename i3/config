@@ -122,7 +122,7 @@ bindsym $mod+Ctrl+4 exec kolourpaint
 
 # Auto-move certain apps
 for_window [class="Spotify"] move to workspace  Spotify
-for_window [class="Thunderbird"] move to workspace  Mail
+for_window [class="thunderbird"] move to workspace  Mail
 for_window [class="qutebrowser"] move to workspace  WhatsApp
 
 # Audio controls
@@ -160,4 +160,5 @@ exec_always --no-startup-id "xset r rate 240 30"
 # Configure touch pad & track point
 exec_always --no-startup-id xinput set-prop 9 "libinput Tapping Enabled" 1
 exec_always --no-startup-id xinput set-prop 9 "libinput Natural Scrolling Enabled" 1
+exec_always --no-startup-id xinput set-prop 10 "libinput Tapping Enabled" 1
 exec_always --no-startup-id xinput set-prop 10 "libinput Natural Scrolling Enabled" 1

@@ -4,7 +4,9 @@ scroll_up k
 scroll_down j
 
 next_img C-j
+next_img Down
 prev_img C-k
+prev_img Up
 
 zoom_in plus
 zoom_out minus
