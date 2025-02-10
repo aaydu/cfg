@@ -75,20 +75,20 @@ bar {
 	}
 }
 
-# class                 border  backgr. text    indica. child_border
-client.focused          #000000 #000000 #ffffff #00AA00 #aaaaaa
-client.focused_inactive #777777 #292929 #EEEEEE #005500 #222222
-client.unfocused        #777777 #292929 #EEEEEE #005500 #222222
-client.urgent           #777777 #900000 #ffffff #AA0000 #AA0000
-client.placeholder      #777777 #0c0c0c #ffffff #005500 #777777
-
-client.background       #ffffff
+# class                  border  backgr. text    indica. child_border
+client.focused           #888888 #888888 #ffffff #00AA00 #888888
+client.focused_inactive  #888888 #555555 #EEEEEE #005500 #222222
+client.unfocused         #888888 #292929 #EEEEEE #005500 #222222
+client.urgent            #888888 #900000 #ffffff #AA0000 #AA0000
+client.placeholder       #888888 #0c0c0c #ffffff #005500 #777777
+client.background        #ffffff
 
 new_window pixel 0
+
 # Gaps
 default_border pixel 2
 gaps inner 5
-smart_gaps on
+#smart_gaps on
 
 bindsym $mod+Escape mode "$mode_system"
 set $mode_system [l]ock, [s]uspend-then-hibernate, [h]ibernate, [r]eboot, [Shift+s]hutdown

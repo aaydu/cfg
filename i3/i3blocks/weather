@@ -1,27 +1,29 @@
 #!/home/aa/.envs/base/bin/python
 import os, requests, functools
 
-location = os.environ.get('location', 'Honolulu') # location
-text = requests.get(f'http://wttr.in/{location}?format=%l:++%C%t+++%h').text.replace('+','')
+location = os.environ.get('location', 'Honolulu')
+text = requests.get(f'http://wttr.in/{location}?format=%C%t+++%h').text.replace('+','').replace(',', '').lower().replace('°c', '°C')
+#text = requests.get(f'http://wttr.in/{location}?format=%c%t+++%h').text.replace('+','').replace(',', '').lower().replace('°c', '°C')
 
 if len(text) > 40: # probably error response
-    exit
+    text = '?'
 
-icons = {'Sunny':        ' ',
-         'Overcast':     ' ',
-         'Partly cloudy':' ',
-         'Light rain':   ' ',
-         'Drizzle':      ' ',
-         'Rain':         ' ',
-         'Shower':       ' ',
-         'todo':         ' ',
-         'Thunderstorm': ' ',
-         'Mist':         ' ',
-         'Fog':          ' ',
-         'Haze':         ' ',
-         'Snow':         ' '}
+icons = {'sunny':         ' ',
+         'overcast':      ' ',
+         'partly cloudy': ' ',
+         'light rain':    ' ',
+         'Light drizzle': ' ',
+         'drizzle':       ' ',
+         'rain':          ' ',
+         'shower':        ' ',
+         'todo':          ' ',
+         'thunderstorm':  ' ',
+         'mist':          ' ',
+         'fog':           ' ',
+         'haze':          ' ',
+         'snow':          ' '}
 
 text = functools.reduce(lambda t, kv: t.replace(*kv), icons.items(), text)
 
-print(text, flush=True)
+print(f'{location}:  {text}', flush=True)
 
